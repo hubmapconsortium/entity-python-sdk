@@ -729,43 +729,6 @@ class EntitiesResource(SyncAPIResource):
             cast_to=EntityCreateResponse,
         )
 
-    def retrieve(
-        self,
-        id: str,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Entity:
-        """Retrieve a provenance entity by id.
-
-        Entity types of Donor, Sample and Datasets.
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not id:
-            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return cast(
-            Entity,
-            self._get(
-                f"/entities/{id}",
-                options=make_request_options(
-                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-                ),
-                cast_to=cast(Any, Entity),  # Union types cannot be passed in as arguments in the type system
-            ),
-        )
-
     @overload
     def update(
         self,
@@ -1758,6 +1721,43 @@ class EntitiesResource(SyncAPIResource):
             cast_to=NoneType,
         )
 
+    def retrieve2(
+        self,
+        id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> Entity:
+        """Retrieve a provenance entity by id.
+
+        Entity types of Donor, Sample and Datasets.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return cast(
+            Entity,
+            self._get(
+                f"/entities/{id}",
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(Any, Entity),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
 
 class AsyncEntitiesResource(AsyncAPIResource):
     @cached_property
@@ -2432,43 +2432,6 @@ class AsyncEntitiesResource(AsyncAPIResource):
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
             cast_to=EntityCreateResponse,
-        )
-
-    async def retrieve(
-        self,
-        id: str,
-        *,
-        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
-        # The extra values given here take precedence over values defined on the client or passed to this method.
-        extra_headers: Headers | None = None,
-        extra_query: Query | None = None,
-        extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Entity:
-        """Retrieve a provenance entity by id.
-
-        Entity types of Donor, Sample and Datasets.
-
-        Args:
-          extra_headers: Send extra headers
-
-          extra_query: Add additional query parameters to the request
-
-          extra_body: Add additional JSON properties to the request
-
-          timeout: Override the client-level default timeout for this request, in seconds
-        """
-        if not id:
-            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        return cast(
-            Entity,
-            await self._get(
-                f"/entities/{id}",
-                options=make_request_options(
-                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
-                ),
-                cast_to=cast(Any, Entity),  # Union types cannot be passed in as arguments in the type system
-            ),
         )
 
     @overload
@@ -3465,6 +3428,43 @@ class AsyncEntitiesResource(AsyncAPIResource):
             cast_to=NoneType,
         )
 
+    async def retrieve2(
+        self,
+        id: str,
+        *,
+        # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
+        # The extra values given here take precedence over values defined on the client or passed to this method.
+        extra_headers: Headers | None = None,
+        extra_query: Query | None = None,
+        extra_body: Body | None = None,
+        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+    ) -> Entity:
+        """Retrieve a provenance entity by id.
+
+        Entity types of Donor, Sample and Datasets.
+
+        Args:
+          extra_headers: Send extra headers
+
+          extra_query: Add additional query parameters to the request
+
+          extra_body: Add additional JSON properties to the request
+
+          timeout: Override the client-level default timeout for this request, in seconds
+        """
+        if not id:
+            raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
+        return cast(
+            Entity,
+            await self._get(
+                f"/entities/{id}",
+                options=make_request_options(
+                    extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
+                ),
+                cast_to=cast(Any, Entity),  # Union types cannot be passed in as arguments in the type system
+            ),
+        )
+
 
 class EntitiesResourceWithRawResponse:
     def __init__(self, entities: EntitiesResource) -> None:
@@ -3472,9 +3472,6 @@ class EntitiesResourceWithRawResponse:
 
         self.create = to_raw_response_wrapper(
             entities.create,
-        )
-        self.retrieve = to_raw_response_wrapper(
-            entities.retrieve,
         )
         self.update = to_raw_response_wrapper(
             entities.update,
@@ -3509,6 +3506,9 @@ class EntitiesResourceWithRawResponse:
         self.retrieve_provenance = to_raw_response_wrapper(
             entities.retrieve_provenance,
         )
+        self.retrieve2 = to_raw_response_wrapper(
+            entities.retrieve2,
+        )
 
     @cached_property
     def type(self) -> TypeResourceWithRawResponse:
@@ -3521,9 +3521,6 @@ class AsyncEntitiesResourceWithRawResponse:
 
         self.create = async_to_raw_response_wrapper(
             entities.create,
-        )
-        self.retrieve = async_to_raw_response_wrapper(
-            entities.retrieve,
         )
         self.update = async_to_raw_response_wrapper(
             entities.update,
@@ -3558,6 +3555,9 @@ class AsyncEntitiesResourceWithRawResponse:
         self.retrieve_provenance = async_to_raw_response_wrapper(
             entities.retrieve_provenance,
         )
+        self.retrieve2 = async_to_raw_response_wrapper(
+            entities.retrieve2,
+        )
 
     @cached_property
     def type(self) -> AsyncTypeResourceWithRawResponse:
@@ -3570,9 +3570,6 @@ class EntitiesResourceWithStreamingResponse:
 
         self.create = to_streamed_response_wrapper(
             entities.create,
-        )
-        self.retrieve = to_streamed_response_wrapper(
-            entities.retrieve,
         )
         self.update = to_streamed_response_wrapper(
             entities.update,
@@ -3607,6 +3604,9 @@ class EntitiesResourceWithStreamingResponse:
         self.retrieve_provenance = to_streamed_response_wrapper(
             entities.retrieve_provenance,
         )
+        self.retrieve2 = to_streamed_response_wrapper(
+            entities.retrieve2,
+        )
 
     @cached_property
     def type(self) -> TypeResourceWithStreamingResponse:
@@ -3619,9 +3619,6 @@ class AsyncEntitiesResourceWithStreamingResponse:
 
         self.create = async_to_streamed_response_wrapper(
             entities.create,
-        )
-        self.retrieve = async_to_streamed_response_wrapper(
-            entities.retrieve,
         )
         self.update = async_to_streamed_response_wrapper(
             entities.update,
@@ -3655,6 +3652,9 @@ class AsyncEntitiesResourceWithStreamingResponse:
         )
         self.retrieve_provenance = async_to_streamed_response_wrapper(
             entities.retrieve_provenance,
+        )
+        self.retrieve2 = async_to_streamed_response_wrapper(
+            entities.retrieve2,
         )
 
     @cached_property
