@@ -415,48 +415,6 @@ class TestEntities:
 
     @pytest.mark.skip()
     @parametrize
-    def test_method_retrieve(self, client: EntityPythonSDK) -> None:
-        entity = client.entities.retrieve(
-            "id",
-        )
-        assert_matches_type(Entity, entity, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_raw_response_retrieve(self, client: EntityPythonSDK) -> None:
-        response = client.entities.with_raw_response.retrieve(
-            "id",
-        )
-
-        assert response.is_closed is True
-        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-        entity = response.parse()
-        assert_matches_type(Entity, entity, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_streaming_response_retrieve(self, client: EntityPythonSDK) -> None:
-        with client.entities.with_streaming_response.retrieve(
-            "id",
-        ) as response:
-            assert not response.is_closed
-            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-
-            entity = response.parse()
-            assert_matches_type(Entity, entity, path=["response"])
-
-        assert cast(Any, response.is_closed) is True
-
-    @pytest.mark.skip()
-    @parametrize
-    def test_path_params_retrieve(self, client: EntityPythonSDK) -> None:
-        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-            client.entities.with_raw_response.retrieve(
-                "",
-            )
-
-    @pytest.mark.skip()
-    @parametrize
     def test_method_update_overload_1(self, client: EntityPythonSDK) -> None:
         entity = client.entities.update(
             id="id",
@@ -1237,6 +1195,48 @@ class TestEntities:
                 "",
             )
 
+    @pytest.mark.skip()
+    @parametrize
+    def test_method_retrieve2(self, client: EntityPythonSDK) -> None:
+        entity = client.entities.retrieve2(
+            "id",
+        )
+        assert_matches_type(Entity, entity, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_retrieve2(self, client: EntityPythonSDK) -> None:
+        response = client.entities.with_raw_response.retrieve2(
+            "id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        entity = response.parse()
+        assert_matches_type(Entity, entity, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_retrieve2(self, client: EntityPythonSDK) -> None:
+        with client.entities.with_streaming_response.retrieve2(
+            "id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            entity = response.parse()
+            assert_matches_type(Entity, entity, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_path_params_retrieve2(self, client: EntityPythonSDK) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            client.entities.with_raw_response.retrieve2(
+                "",
+            )
+
 
 class TestAsyncEntities:
     parametrize = pytest.mark.parametrize("async_client", [False, True], indirect=True, ids=["loose", "strict"])
@@ -1623,48 +1623,6 @@ class TestAsyncEntities:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `entity_type` but received ''"):
             await async_client.entities.with_raw_response.create(
                 entity_type="",
-            )
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_method_retrieve(self, async_client: AsyncEntityPythonSDK) -> None:
-        entity = await async_client.entities.retrieve(
-            "id",
-        )
-        assert_matches_type(Entity, entity, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_raw_response_retrieve(self, async_client: AsyncEntityPythonSDK) -> None:
-        response = await async_client.entities.with_raw_response.retrieve(
-            "id",
-        )
-
-        assert response.is_closed is True
-        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-        entity = await response.parse()
-        assert_matches_type(Entity, entity, path=["response"])
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_streaming_response_retrieve(self, async_client: AsyncEntityPythonSDK) -> None:
-        async with async_client.entities.with_streaming_response.retrieve(
-            "id",
-        ) as response:
-            assert not response.is_closed
-            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
-
-            entity = await response.parse()
-            assert_matches_type(Entity, entity, path=["response"])
-
-        assert cast(Any, response.is_closed) is True
-
-    @pytest.mark.skip()
-    @parametrize
-    async def test_path_params_retrieve(self, async_client: AsyncEntityPythonSDK) -> None:
-        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
-            await async_client.entities.with_raw_response.retrieve(
-                "",
             )
 
     @pytest.mark.skip()
@@ -2446,5 +2404,47 @@ class TestAsyncEntities:
     async def test_path_params_retrieve_provenance(self, async_client: AsyncEntityPythonSDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
             await async_client.entities.with_raw_response.retrieve_provenance(
+                "",
+            )
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_retrieve2(self, async_client: AsyncEntityPythonSDK) -> None:
+        entity = await async_client.entities.retrieve2(
+            "id",
+        )
+        assert_matches_type(Entity, entity, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_retrieve2(self, async_client: AsyncEntityPythonSDK) -> None:
+        response = await async_client.entities.with_raw_response.retrieve2(
+            "id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        entity = await response.parse()
+        assert_matches_type(Entity, entity, path=["response"])
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_retrieve2(self, async_client: AsyncEntityPythonSDK) -> None:
+        async with async_client.entities.with_streaming_response.retrieve2(
+            "id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            entity = await response.parse()
+            assert_matches_type(Entity, entity, path=["response"])
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_path_params_retrieve2(self, async_client: AsyncEntityPythonSDK) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            await async_client.entities.with_raw_response.retrieve2(
                 "",
             )
