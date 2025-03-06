@@ -31,7 +31,7 @@ class SamplesResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/hubmap-api-devs/entity-python-sdk#accessing-raw-response-data-eg-headers
         """
         return SamplesResourceWithRawResponse(self)
 
@@ -40,7 +40,7 @@ class SamplesResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#with_streaming_response
+        For more information, see https://www.github.com/hubmap-api-devs/entity-python-sdk#with_streaming_response
         """
         return SamplesResourceWithStreamingResponse(self)
 
@@ -91,7 +91,7 @@ class AsyncSamplesResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/hubmap-api-devs/entity-python-sdk#accessing-raw-response-data-eg-headers
         """
         return AsyncSamplesResourceWithRawResponse(self)
 
@@ -100,7 +100,7 @@ class AsyncSamplesResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#with_streaming_response
+        For more information, see https://www.github.com/hubmap-api-devs/entity-python-sdk#with_streaming_response
         """
         return AsyncSamplesResourceWithStreamingResponse(self)
 

@@ -15,9 +15,12 @@ The REST API documentation can be found on [docs.entity-python-sdk.com](https://
 ## Installation
 
 ```sh
-# install from PyPI
-pip install entity_python_sdk
+# install from the production repo
+pip install git+ssh://git@github.com/hubmap-api-devs/entity-python-sdk.git
 ```
+
+> [!NOTE]
+> Once this package is [published to PyPI](https://app.stainless.com/docs/guides/publish), this will become: `pip install entity_python_sdk`
 
 ## Usage
 
@@ -33,7 +36,7 @@ client = EntityPythonSDK(
     ),  # This is the default and can be omitted
 )
 
-entity = client.entities.retrieve1(
+entity = client.entities.retrieve(
     "REPLACE_ME",
 )
 ```
@@ -60,7 +63,7 @@ client = AsyncEntityPythonSDK(
 
 
 async def main() -> None:
-    entity = await client.entities.retrieve1(
+    entity = await client.entities.retrieve(
         "REPLACE_ME",
     )
 
@@ -95,7 +98,7 @@ from entity_python_sdk import EntityPythonSDK
 client = EntityPythonSDK()
 
 try:
-    client.entities.retrieve1(
+    client.entities.retrieve(
         "REPLACE_ME",
     )
 except entity_python_sdk.APIConnectionError as e:
@@ -140,7 +143,7 @@ client = EntityPythonSDK(
 )
 
 # Or, configure per-request:
-client.with_options(max_retries=5).entities.retrieve1(
+client.with_options(max_retries=5).entities.retrieve(
     "REPLACE_ME",
 )
 ```
@@ -165,7 +168,7 @@ client = EntityPythonSDK(
 )
 
 # Override per-request:
-client.with_options(timeout=5.0).entities.retrieve1(
+client.with_options(timeout=5.0).entities.retrieve(
     "REPLACE_ME",
 )
 ```
@@ -208,18 +211,18 @@ The "raw" Response object can be accessed by prefixing `.with_raw_response.` to 
 from entity_python_sdk import EntityPythonSDK
 
 client = EntityPythonSDK()
-response = client.entities.with_raw_response.retrieve1(
+response = client.entities.with_raw_response.retrieve(
     "REPLACE_ME",
 )
 print(response.headers.get('X-My-Header'))
 
-entity = response.parse()  # get the object that `entities.retrieve1()` would have returned
+entity = response.parse()  # get the object that `entities.retrieve()` would have returned
 print(entity)
 ```
 
-These methods return an [`APIResponse`](https://github.com/hubmapconsortium/entity-python-sdk/tree/main/src/entity_python_sdk/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/hubmap-api-devs/entity-python-sdk/tree/main/src/entity_python_sdk/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/hubmapconsortium/entity-python-sdk/tree/main/src/entity_python_sdk/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/hubmap-api-devs/entity-python-sdk/tree/main/src/entity_python_sdk/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -228,7 +231,7 @@ The above interface eagerly reads the full response body when you make the reque
 To stream the response body, use `.with_streaming_response` instead, which requires a context manager and only reads the response body once you call `.read()`, `.text()`, `.json()`, `.iter_bytes()`, `.iter_text()`, `.iter_lines()` or `.parse()`. In the async client, these are async methods.
 
 ```python
-with client.entities.with_streaming_response.retrieve1(
+with client.entities.with_streaming_response.retrieve(
     "REPLACE_ME",
 ) as response:
     print(response.headers.get("X-My-Header"))
@@ -325,7 +328,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/hubmapconsortium/entity-python-sdk/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/hubmap-api-devs/entity-python-sdk/issues) with questions, bugs, or suggestions.
 
 ### Determining the installed version
 
