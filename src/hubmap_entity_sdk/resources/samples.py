@@ -19,7 +19,6 @@ from .._response import (
     async_to_streamed_response_wrapper,
 )
 from .._base_client import make_request_options
-from ..types.sample_retrieve_prov_info_response import SampleRetrieveProvInfoResponse
 
 __all__ = ["SamplesResource", "AsyncSamplesResource"]
 
@@ -54,7 +53,7 @@ class SamplesResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SampleRetrieveProvInfoResponse:
+    ) -> object:
         """
         returns all provenance information for a each sample in a json format
 
@@ -80,7 +79,7 @@ class SamplesResource(SyncAPIResource):
                     {"group_uuid": group_uuid}, sample_retrieve_prov_info_params.SampleRetrieveProvInfoParams
                 ),
             ),
-            cast_to=SampleRetrieveProvInfoResponse,
+            cast_to=object,
         )
 
 
@@ -114,7 +113,7 @@ class AsyncSamplesResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SampleRetrieveProvInfoResponse:
+    ) -> object:
         """
         returns all provenance information for a each sample in a json format
 
@@ -140,7 +139,7 @@ class AsyncSamplesResource(AsyncAPIResource):
                     {"group_uuid": group_uuid}, sample_retrieve_prov_info_params.SampleRetrieveProvInfoParams
                 ),
             ),
-            cast_to=SampleRetrieveProvInfoResponse,
+            cast_to=object,
         )
 
 

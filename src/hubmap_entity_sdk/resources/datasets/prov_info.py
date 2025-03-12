@@ -21,8 +21,6 @@ from ..._response import (
 )
 from ..._base_client import make_request_options
 from ...types.datasets import prov_info_list_all_params, prov_info_retrieve_params
-from ...types.datasets.prov_info_list_all_response import ProvInfoListAllResponse
-from ...types.datasets.prov_info_retrieve_response import ProvInfoRetrieveResponse
 
 __all__ = ["ProvInfoResource", "AsyncProvInfoResource"]
 
@@ -58,7 +56,7 @@ class ProvInfoResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ProvInfoRetrieveResponse:
+    ) -> object:
         """
         returns aLL provenance information for a single dataset in a default table/tsv
         format or optionally a json format when an optional ?format=json parameter is
@@ -88,7 +86,7 @@ class ProvInfoResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform({"format": format}, prov_info_retrieve_params.ProvInfoRetrieveParams),
             ),
-            cast_to=ProvInfoRetrieveResponse,
+            cast_to=object,
         )
 
     def list_all(
@@ -105,7 +103,7 @@ class ProvInfoResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ProvInfoListAllResponse:
+    ) -> object:
         """
         returns ALL provenance information for ALL datasets in a default table/tsv
         format or optionally a json format when an optional ?format=json parameter is
@@ -152,7 +150,7 @@ class ProvInfoResource(SyncAPIResource):
                     prov_info_list_all_params.ProvInfoListAllParams,
                 ),
             ),
-            cast_to=ProvInfoListAllResponse,
+            cast_to=object,
         )
 
 
@@ -187,7 +185,7 @@ class AsyncProvInfoResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ProvInfoRetrieveResponse:
+    ) -> object:
         """
         returns aLL provenance information for a single dataset in a default table/tsv
         format or optionally a json format when an optional ?format=json parameter is
@@ -217,7 +215,7 @@ class AsyncProvInfoResource(AsyncAPIResource):
                 timeout=timeout,
                 query=await async_maybe_transform({"format": format}, prov_info_retrieve_params.ProvInfoRetrieveParams),
             ),
-            cast_to=ProvInfoRetrieveResponse,
+            cast_to=object,
         )
 
     async def list_all(
@@ -234,7 +232,7 @@ class AsyncProvInfoResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> ProvInfoListAllResponse:
+    ) -> object:
         """
         returns ALL provenance information for ALL datasets in a default table/tsv
         format or optionally a json format when an optional ?format=json parameter is
@@ -281,7 +279,7 @@ class AsyncProvInfoResource(AsyncAPIResource):
                     prov_info_list_all_params.ProvInfoListAllParams,
                 ),
             ),
-            cast_to=ProvInfoListAllResponse,
+            cast_to=object,
         )
 
 

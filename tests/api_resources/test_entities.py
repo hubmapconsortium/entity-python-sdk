@@ -508,7 +508,7 @@ class TestEntities:
         entity = client.entities.retrieve_provenance(
             "id",
         )
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -520,7 +520,7 @@ class TestEntities:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         entity = response.parse()
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -532,7 +532,7 @@ class TestEntities:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             entity = response.parse()
-            assert entity is None
+            assert_matches_type(object, entity, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -1032,7 +1032,7 @@ class TestAsyncEntities:
         entity = await async_client.entities.retrieve_provenance(
             "id",
         )
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -1044,7 +1044,7 @@ class TestAsyncEntities:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         entity = await response.parse()
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -1056,7 +1056,7 @@ class TestAsyncEntities:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             entity = await response.parse()
-            assert entity is None
+            assert_matches_type(object, entity, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 

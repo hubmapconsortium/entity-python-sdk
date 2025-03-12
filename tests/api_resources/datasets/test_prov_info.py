@@ -9,10 +9,6 @@ import pytest
 
 from tests.utils import assert_matches_type
 from hubmap_entity_sdk import HubmapEntitySDK, AsyncHubmapEntitySDK
-from hubmap_entity_sdk.types.datasets import (
-    ProvInfoListAllResponse,
-    ProvInfoRetrieveResponse,
-)
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -26,7 +22,7 @@ class TestProvInfo:
         prov_info = client.datasets.prov_info.retrieve(
             id="id",
         )
-        assert_matches_type(ProvInfoRetrieveResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -35,7 +31,7 @@ class TestProvInfo:
             id="id",
             format="json",
         )
-        assert_matches_type(ProvInfoRetrieveResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -47,7 +43,7 @@ class TestProvInfo:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         prov_info = response.parse()
-        assert_matches_type(ProvInfoRetrieveResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -59,7 +55,7 @@ class TestProvInfo:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             prov_info = response.parse()
-            assert_matches_type(ProvInfoRetrieveResponse, prov_info, path=["response"])
+            assert_matches_type(object, prov_info, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -75,7 +71,7 @@ class TestProvInfo:
     @parametrize
     def test_method_list_all(self, client: HubmapEntitySDK) -> None:
         prov_info = client.datasets.prov_info.list_all()
-        assert_matches_type(ProvInfoListAllResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -87,7 +83,7 @@ class TestProvInfo:
             has_rui_info="true",
             organ="organ",
         )
-        assert_matches_type(ProvInfoListAllResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -97,7 +93,7 @@ class TestProvInfo:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         prov_info = response.parse()
-        assert_matches_type(ProvInfoListAllResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -107,7 +103,7 @@ class TestProvInfo:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             prov_info = response.parse()
-            assert_matches_type(ProvInfoListAllResponse, prov_info, path=["response"])
+            assert_matches_type(object, prov_info, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -121,7 +117,7 @@ class TestAsyncProvInfo:
         prov_info = await async_client.datasets.prov_info.retrieve(
             id="id",
         )
-        assert_matches_type(ProvInfoRetrieveResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -130,7 +126,7 @@ class TestAsyncProvInfo:
             id="id",
             format="json",
         )
-        assert_matches_type(ProvInfoRetrieveResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -142,7 +138,7 @@ class TestAsyncProvInfo:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         prov_info = await response.parse()
-        assert_matches_type(ProvInfoRetrieveResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -154,7 +150,7 @@ class TestAsyncProvInfo:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             prov_info = await response.parse()
-            assert_matches_type(ProvInfoRetrieveResponse, prov_info, path=["response"])
+            assert_matches_type(object, prov_info, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -170,7 +166,7 @@ class TestAsyncProvInfo:
     @parametrize
     async def test_method_list_all(self, async_client: AsyncHubmapEntitySDK) -> None:
         prov_info = await async_client.datasets.prov_info.list_all()
-        assert_matches_type(ProvInfoListAllResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -182,7 +178,7 @@ class TestAsyncProvInfo:
             has_rui_info="true",
             organ="organ",
         )
-        assert_matches_type(ProvInfoListAllResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -192,7 +188,7 @@ class TestAsyncProvInfo:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         prov_info = await response.parse()
-        assert_matches_type(ProvInfoListAllResponse, prov_info, path=["response"])
+        assert_matches_type(object, prov_info, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -202,6 +198,6 @@ class TestAsyncProvInfo:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             prov_info = await response.parse()
-            assert_matches_type(ProvInfoListAllResponse, prov_info, path=["response"])
+            assert_matches_type(object, prov_info, path=["response"])
 
         assert cast(Any, response.is_closed) is True
