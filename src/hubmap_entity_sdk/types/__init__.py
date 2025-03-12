@@ -2,22 +2,6 @@
 
 from __future__ import annotations
 
-from .file import File as File
-from .donor import Donor as Donor
-from .person import Person as Person
-from .sample import Sample as Sample
-from .upload import Upload as Upload
-from .dataset import Dataset as Dataset
-from .collection import Collection as Collection
-from .file_param import FileParam as FileParam
-from .donor_param import DonorParam as DonorParam
-from .person_param import PersonParam as PersonParam
-from .sample_param import SampleParam as SampleParam
-from .upload_param import UploadParam as UploadParam
-from .dataset_param import DatasetParam as DatasetParam
-from .donor_metadata import DonorMetadata as DonorMetadata
-from .collection_param import CollectionParam as CollectionParam
-from .donor_metadata_param import DonorMetadataParam as DonorMetadataParam
 from .entity_update_params import EntityUpdateParams as EntityUpdateParams
 from .dataset_retract_params import DatasetRetractParams as DatasetRetractParams
 from .child_retrieve_response import ChildRetrieveResponse as ChildRetrieveResponse
@@ -43,31 +27,20 @@ from .dataset_list_unpublished_params import DatasetListUnpublishedParams as Dat
 from .dataset_create_components_params import DatasetCreateComponentsParams as DatasetCreateComponentsParams
 from .entity_list_collections_response import EntityListCollectionsResponse as EntityListCollectionsResponse
 from .sample_retrieve_prov_info_params import SampleRetrieveProvInfoParams as SampleRetrieveProvInfoParams
-from .dataset_list_unpublished_response import DatasetListUnpublishedResponse as DatasetListUnpublishedResponse
 from .dataset_retrieve_revisions_params import DatasetRetrieveRevisionsParams as DatasetRetrieveRevisionsParams
 from .dataset_create_components_response import DatasetCreateComponentsResponse as DatasetCreateComponentsResponse
-from .sample_retrieve_prov_info_response import SampleRetrieveProvInfoResponse as SampleRetrieveProvInfoResponse
-from .dataset_retrieve_revisions_response import DatasetRetrieveRevisionsResponse as DatasetRetrieveRevisionsResponse
+from .dataset_retrieve_revision_response import DatasetRetrieveRevisionResponse as DatasetRetrieveRevisionResponse
 from .entity_retrieve_globus_url_response import EntityRetrieveGlobusURLResponse as EntityRetrieveGlobusURLResponse
 from .entity_list_ancestor_organs_response import EntityListAncestorOrgansResponse as EntityListAncestorOrgansResponse
-from .dataset_retrieve_sankey_data_response import (
-    DatasetRetrieveSankeyDataResponse as DatasetRetrieveSankeyDataResponse,
-)
 from .dataset_retrieve_paired_dataset_params import (
     DatasetRetrievePairedDatasetParams as DatasetRetrievePairedDatasetParams,
 )
 from .dataset_retrieve_multi_revisions_params import (
     DatasetRetrieveMultiRevisionsParams as DatasetRetrieveMultiRevisionsParams,
 )
-from .dataset_retrieve_prov_metadata_response import (
-    DatasetRetrieveProvMetadataResponse as DatasetRetrieveProvMetadataResponse,
-)
 from .entity_create_multiple_samples_response import (
     EntityCreateMultipleSamplesResponse as EntityCreateMultipleSamplesResponse,
 )
 from .dataset_retrieve_paired_dataset_response import (
     DatasetRetrievePairedDatasetResponse as DatasetRetrievePairedDatasetResponse,
-)
-from .dataset_retrieve_multi_revisions_response import (
-    DatasetRetrieveMultiRevisionsResponse as DatasetRetrieveMultiRevisionsResponse,
 )

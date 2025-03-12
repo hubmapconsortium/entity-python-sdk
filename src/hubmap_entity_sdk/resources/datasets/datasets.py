@@ -15,7 +15,7 @@ from ...types import (
     dataset_retrieve_paired_dataset_params,
     dataset_retrieve_multi_revisions_params,
 )
-from ..._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ..._utils import (
     maybe_transform,
     async_maybe_transform,
@@ -37,19 +37,13 @@ from ..._response import (
     async_to_streamed_response_wrapper,
 )
 from ..._base_client import make_request_options
-from ...types.dataset import Dataset
-from ...types.dataset_param import DatasetParam
 from ...types.dataset_bulk_update_response import DatasetBulkUpdateResponse
 from ...types.dataset_list_donors_response import DatasetListDonorsResponse
 from ...types.dataset_list_organs_response import DatasetListOrgansResponse
 from ...types.dataset_list_samples_response import DatasetListSamplesResponse
-from ...types.dataset_list_unpublished_response import DatasetListUnpublishedResponse
 from ...types.dataset_create_components_response import DatasetCreateComponentsResponse
-from ...types.dataset_retrieve_revisions_response import DatasetRetrieveRevisionsResponse
-from ...types.dataset_retrieve_sankey_data_response import DatasetRetrieveSankeyDataResponse
-from ...types.dataset_retrieve_prov_metadata_response import DatasetRetrieveProvMetadataResponse
+from ...types.dataset_retrieve_revision_response import DatasetRetrieveRevisionResponse
 from ...types.dataset_retrieve_paired_dataset_response import DatasetRetrievePairedDatasetResponse
-from ...types.dataset_retrieve_multi_revisions_response import DatasetRetrieveMultiRevisionsResponse
 
 __all__ = ["DatasetsResource", "AsyncDatasetsResource"]
 
@@ -81,7 +75,7 @@ class DatasetsResource(SyncAPIResource):
     def bulk_update(
         self,
         *,
-        body: Iterable[DatasetParam],
+        body: Iterable[object],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -105,7 +99,7 @@ class DatasetsResource(SyncAPIResource):
         """
         return self._put(
             "/datasets",
-            body=maybe_transform(body, Iterable[DatasetParam]),
+            body=maybe_transform(body, Iterable[object]),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -115,10 +109,7 @@ class DatasetsResource(SyncAPIResource):
     def create_components(
         self,
         *,
-        creation_action: str | NotGiven = NOT_GIVEN,
-        datasets: Iterable[dataset_create_components_params.Dataset] | NotGiven = NOT_GIVEN,
-        direct_ancestor_uuids: str | NotGiven = NOT_GIVEN,
-        group_uuid: str | NotGiven = NOT_GIVEN,
+        body: object,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -130,13 +121,6 @@ class DatasetsResource(SyncAPIResource):
         Create multiple component datasets from a single Multi-Assay ancestor
 
         Args:
-          creation_action: the action event that will describe the activity node. Allowed valuese are
-              "Multi-Assay Split"
-
-          direct_ancestor_uuids: the uuid for the parent multi assay dataset
-
-          group_uuid: the group uuid for the new component datasets
-
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -147,15 +131,7 @@ class DatasetsResource(SyncAPIResource):
         """
         return self._post(
             "/datasets/components",
-            body=maybe_transform(
-                {
-                    "creation_action": creation_action,
-                    "datasets": datasets,
-                    "direct_ancestor_uuids": direct_ancestor_uuids,
-                    "group_uuid": group_uuid,
-                },
-                dataset_create_components_params.DatasetCreateComponentsParams,
-            ),
+            body=maybe_transform(body, dataset_create_components_params.DatasetCreateComponentsParams),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -273,7 +249,7 @@ class DatasetsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DatasetListUnpublishedResponse:
+    ) -> object:
         """
         returns information about all unpublished datasets in json or tsv format.
         Defaults to json
@@ -298,7 +274,7 @@ class DatasetsResource(SyncAPIResource):
                 timeout=timeout,
                 query=maybe_transform({"format": format}, dataset_list_unpublished_params.DatasetListUnpublishedParams),
             ),
-            cast_to=DatasetListUnpublishedResponse,
+            cast_to=object,
         )
 
     def retract(
@@ -312,7 +288,7 @@ class DatasetsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> object:
         """Retracts a dataset after it has been published.
 
         Requires a json body with a
@@ -336,14 +312,13 @@ class DatasetsResource(SyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._put(
             f"/datasets/{id}/retract",
             body=maybe_transform({"retraction_reason": retraction_reason}, dataset_retract_params.DatasetRetractParams),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=object,
         )
 
     def retrieve_latest_revision(
@@ -356,7 +331,7 @@ class DatasetsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Dataset:
+    ) -> object:
         """Retrive the latest (newest) revision of a given Dataset.
 
         Public/Consortium
@@ -381,7 +356,7 @@ class DatasetsResource(SyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=Dataset,
+            cast_to=object,
         )
 
     def retrieve_multi_revisions(
@@ -395,7 +370,7 @@ class DatasetsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DatasetRetrieveMultiRevisionsResponse:
+    ) -> object:
         """
         Retrieve a list of all multi revisions of a dataset from the id of any dataset
         in the chain. E.g: If there are 5 revisions, and the id for revision 4 is given,
@@ -432,7 +407,7 @@ class DatasetsResource(SyncAPIResource):
                     dataset_retrieve_multi_revisions_params.DatasetRetrieveMultiRevisionsParams,
                 ),
             ),
-            cast_to=DatasetRetrieveMultiRevisionsResponse,
+            cast_to=object,
         )
 
     def retrieve_paired_dataset(
@@ -496,7 +471,7 @@ class DatasetsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DatasetRetrieveProvMetadataResponse:
+    ) -> object:
         """
         Returns full provenance metadata for a Dataset, which can be used when
         publishing the Dataset.
@@ -517,7 +492,7 @@ class DatasetsResource(SyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=DatasetRetrieveProvMetadataResponse,
+            cast_to=object,
         )
 
     def retrieve_revision(
@@ -530,7 +505,7 @@ class DatasetsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> DatasetRetrieveRevisionResponse:
         """Retrive the calculated revision number of a Dataset.
 
         The calculated revision is
@@ -552,13 +527,12 @@ class DatasetsResource(SyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._get(
             f"/datasets/{id}/revision",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=int,
         )
 
     def retrieve_revisions(
@@ -572,7 +546,7 @@ class DatasetsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DatasetRetrieveRevisionsResponse:
+    ) -> object:
         """
         From a given ID of a versioned dataset, retrieve a list of every dataset in the
         chain ordered from most recent to oldest. The revision number, as well as the
@@ -612,7 +586,7 @@ class DatasetsResource(SyncAPIResource):
                     dataset_retrieve_revisions_params.DatasetRetrieveRevisionsParams,
                 ),
             ),
-            cast_to=DatasetRetrieveRevisionsResponse,
+            cast_to=object,
         )
 
     def retrieve_sankey_data(
@@ -624,7 +598,7 @@ class DatasetsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DatasetRetrieveSankeyDataResponse:
+    ) -> object:
         """
         Retrieves the information needed to generate the sankey on software-docs as a
         json.
@@ -634,7 +608,7 @@ class DatasetsResource(SyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=DatasetRetrieveSankeyDataResponse,
+            cast_to=object,
         )
 
 
@@ -665,7 +639,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
     async def bulk_update(
         self,
         *,
-        body: Iterable[DatasetParam],
+        body: Iterable[object],
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -689,7 +663,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         """
         return await self._put(
             "/datasets",
-            body=await async_maybe_transform(body, Iterable[DatasetParam]),
+            body=await async_maybe_transform(body, Iterable[object]),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -699,10 +673,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
     async def create_components(
         self,
         *,
-        creation_action: str | NotGiven = NOT_GIVEN,
-        datasets: Iterable[dataset_create_components_params.Dataset] | NotGiven = NOT_GIVEN,
-        direct_ancestor_uuids: str | NotGiven = NOT_GIVEN,
-        group_uuid: str | NotGiven = NOT_GIVEN,
+        body: object,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -714,13 +685,6 @@ class AsyncDatasetsResource(AsyncAPIResource):
         Create multiple component datasets from a single Multi-Assay ancestor
 
         Args:
-          creation_action: the action event that will describe the activity node. Allowed valuese are
-              "Multi-Assay Split"
-
-          direct_ancestor_uuids: the uuid for the parent multi assay dataset
-
-          group_uuid: the group uuid for the new component datasets
-
           extra_headers: Send extra headers
 
           extra_query: Add additional query parameters to the request
@@ -731,15 +695,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         """
         return await self._post(
             "/datasets/components",
-            body=await async_maybe_transform(
-                {
-                    "creation_action": creation_action,
-                    "datasets": datasets,
-                    "direct_ancestor_uuids": direct_ancestor_uuids,
-                    "group_uuid": group_uuid,
-                },
-                dataset_create_components_params.DatasetCreateComponentsParams,
-            ),
+            body=await async_maybe_transform(body, dataset_create_components_params.DatasetCreateComponentsParams),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -857,7 +813,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DatasetListUnpublishedResponse:
+    ) -> object:
         """
         returns information about all unpublished datasets in json or tsv format.
         Defaults to json
@@ -884,7 +840,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
                     {"format": format}, dataset_list_unpublished_params.DatasetListUnpublishedParams
                 ),
             ),
-            cast_to=DatasetListUnpublishedResponse,
+            cast_to=object,
         )
 
     async def retract(
@@ -898,7 +854,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> object:
         """Retracts a dataset after it has been published.
 
         Requires a json body with a
@@ -922,7 +878,6 @@ class AsyncDatasetsResource(AsyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._put(
             f"/datasets/{id}/retract",
             body=await async_maybe_transform(
@@ -931,7 +886,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=object,
         )
 
     async def retrieve_latest_revision(
@@ -944,7 +899,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> Dataset:
+    ) -> object:
         """Retrive the latest (newest) revision of a given Dataset.
 
         Public/Consortium
@@ -969,7 +924,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=Dataset,
+            cast_to=object,
         )
 
     async def retrieve_multi_revisions(
@@ -983,7 +938,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DatasetRetrieveMultiRevisionsResponse:
+    ) -> object:
         """
         Retrieve a list of all multi revisions of a dataset from the id of any dataset
         in the chain. E.g: If there are 5 revisions, and the id for revision 4 is given,
@@ -1020,7 +975,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
                     dataset_retrieve_multi_revisions_params.DatasetRetrieveMultiRevisionsParams,
                 ),
             ),
-            cast_to=DatasetRetrieveMultiRevisionsResponse,
+            cast_to=object,
         )
 
     async def retrieve_paired_dataset(
@@ -1084,7 +1039,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DatasetRetrieveProvMetadataResponse:
+    ) -> object:
         """
         Returns full provenance metadata for a Dataset, which can be used when
         publishing the Dataset.
@@ -1105,7 +1060,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=DatasetRetrieveProvMetadataResponse,
+            cast_to=object,
         )
 
     async def retrieve_revision(
@@ -1118,7 +1073,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> DatasetRetrieveRevisionResponse:
         """Retrive the calculated revision number of a Dataset.
 
         The calculated revision is
@@ -1140,13 +1095,12 @@ class AsyncDatasetsResource(AsyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._get(
             f"/datasets/{id}/revision",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=int,
         )
 
     async def retrieve_revisions(
@@ -1160,7 +1114,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DatasetRetrieveRevisionsResponse:
+    ) -> object:
         """
         From a given ID of a versioned dataset, retrieve a list of every dataset in the
         chain ordered from most recent to oldest. The revision number, as well as the
@@ -1200,7 +1154,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
                     dataset_retrieve_revisions_params.DatasetRetrieveRevisionsParams,
                 ),
             ),
-            cast_to=DatasetRetrieveRevisionsResponse,
+            cast_to=object,
         )
 
     async def retrieve_sankey_data(
@@ -1212,7 +1166,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> DatasetRetrieveSankeyDataResponse:
+    ) -> object:
         """
         Retrieves the information needed to generate the sankey on software-docs as a
         json.
@@ -1222,7 +1176,7 @@ class AsyncDatasetsResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=DatasetRetrieveSankeyDataResponse,
+            cast_to=object,
         )
 
 
