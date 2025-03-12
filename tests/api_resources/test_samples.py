@@ -9,7 +9,6 @@ import pytest
 
 from tests.utils import assert_matches_type
 from hubmap_entity_sdk import HubmapEntitySDK, AsyncHubmapEntitySDK
-from hubmap_entity_sdk.types import SampleRetrieveProvInfoResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -21,7 +20,7 @@ class TestSamples:
     @parametrize
     def test_method_retrieve_prov_info(self, client: HubmapEntitySDK) -> None:
         sample = client.samples.retrieve_prov_info()
-        assert_matches_type(SampleRetrieveProvInfoResponse, sample, path=["response"])
+        assert_matches_type(object, sample, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -29,7 +28,7 @@ class TestSamples:
         sample = client.samples.retrieve_prov_info(
             group_uuid="group_uuid",
         )
-        assert_matches_type(SampleRetrieveProvInfoResponse, sample, path=["response"])
+        assert_matches_type(object, sample, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -39,7 +38,7 @@ class TestSamples:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         sample = response.parse()
-        assert_matches_type(SampleRetrieveProvInfoResponse, sample, path=["response"])
+        assert_matches_type(object, sample, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -49,7 +48,7 @@ class TestSamples:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             sample = response.parse()
-            assert_matches_type(SampleRetrieveProvInfoResponse, sample, path=["response"])
+            assert_matches_type(object, sample, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -61,7 +60,7 @@ class TestAsyncSamples:
     @parametrize
     async def test_method_retrieve_prov_info(self, async_client: AsyncHubmapEntitySDK) -> None:
         sample = await async_client.samples.retrieve_prov_info()
-        assert_matches_type(SampleRetrieveProvInfoResponse, sample, path=["response"])
+        assert_matches_type(object, sample, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -69,7 +68,7 @@ class TestAsyncSamples:
         sample = await async_client.samples.retrieve_prov_info(
             group_uuid="group_uuid",
         )
-        assert_matches_type(SampleRetrieveProvInfoResponse, sample, path=["response"])
+        assert_matches_type(object, sample, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -79,7 +78,7 @@ class TestAsyncSamples:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         sample = await response.parse()
-        assert_matches_type(SampleRetrieveProvInfoResponse, sample, path=["response"])
+        assert_matches_type(object, sample, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -89,6 +88,6 @@ class TestAsyncSamples:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             sample = await response.parse()
-            assert_matches_type(SampleRetrieveProvInfoResponse, sample, path=["response"])
+            assert_matches_type(object, sample, path=["response"])
 
         assert cast(Any, response.is_closed) is True
