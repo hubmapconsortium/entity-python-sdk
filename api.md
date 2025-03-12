@@ -35,17 +35,17 @@ Methods:
 
 - <code title="get /entities/type/{type_a}/instanceof/{type_b}">client.entities.type.<a href="./src/hubmap_entity_sdk/resources/entities/type.py">is_instance_of</a>(type_b, \*, type_a) -> None</code>
 
-# EntityTypes
+# EntityTypesAll
 
 Types:
 
 ```python
-from hubmap_entity_sdk.types import EntityTypeListResponse
+from hubmap_entity_sdk.types import EntityTypesAllListResponse
 ```
 
 Methods:
 
-- <code title="get /entity-types">client.entity_types.<a href="./src/hubmap_entity_sdk/resources/entity_types.py">list</a>() -> <a href="./src/hubmap_entity_sdk/types/entity_type_list_response.py">EntityTypeListResponse</a></code>
+- <code title="get /entity-types">client.entity_types_all.<a href="./src/hubmap_entity_sdk/resources/entity_types_all.py">list</a>() -> <a href="./src/hubmap_entity_sdk/types/entity_types_all_list_response.py">EntityTypesAllListResponse</a></code>
 
 # Ancestors
 
