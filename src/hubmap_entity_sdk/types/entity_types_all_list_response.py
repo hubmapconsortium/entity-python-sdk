@@ -3,6 +3,6 @@
 from typing import List
 from typing_extensions import TypeAlias
 
-__all__ = ["EntityCreateMultipleSamplesResponse"]
+__all__ = ["EntityTypesAllListResponse"]
 
-EntityCreateMultipleSamplesResponse: TypeAlias = List[object]
+EntityTypesAllListResponse: TypeAlias = List[str]

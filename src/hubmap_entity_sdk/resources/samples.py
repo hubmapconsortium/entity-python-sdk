@@ -19,7 +19,6 @@ from .._response import (
     async_to_streamed_response_wrapper,
 )
 from .._base_client import make_request_options
-from ..types.sample_retrieve_prov_info_response import SampleRetrieveProvInfoResponse
 
 __all__ = ["SamplesResource", "AsyncSamplesResource"]
 
@@ -31,7 +30,7 @@ class SamplesResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#accessing-raw-response-data-eg-headers
         """
         return SamplesResourceWithRawResponse(self)
 
@@ -40,7 +39,7 @@ class SamplesResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#with_streaming_response
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#with_streaming_response
         """
         return SamplesResourceWithStreamingResponse(self)
 
@@ -54,7 +53,7 @@ class SamplesResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SampleRetrieveProvInfoResponse:
+    ) -> object:
         """
         returns all provenance information for a each sample in a json format
 
@@ -80,7 +79,7 @@ class SamplesResource(SyncAPIResource):
                     {"group_uuid": group_uuid}, sample_retrieve_prov_info_params.SampleRetrieveProvInfoParams
                 ),
             ),
-            cast_to=SampleRetrieveProvInfoResponse,
+            cast_to=object,
         )
 
 
@@ -91,7 +90,7 @@ class AsyncSamplesResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#accessing-raw-response-data-eg-headers
         """
         return AsyncSamplesResourceWithRawResponse(self)
 
@@ -100,7 +99,7 @@ class AsyncSamplesResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#with_streaming_response
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#with_streaming_response
         """
         return AsyncSamplesResourceWithStreamingResponse(self)
 
@@ -114,7 +113,7 @@ class AsyncSamplesResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> SampleRetrieveProvInfoResponse:
+    ) -> object:
         """
         returns all provenance information for a each sample in a json format
 
@@ -140,7 +139,7 @@ class AsyncSamplesResource(AsyncAPIResource):
                     {"group_uuid": group_uuid}, sample_retrieve_prov_info_params.SampleRetrieveProvInfoParams
                 ),
             ),
-            cast_to=SampleRetrieveProvInfoResponse,
+            cast_to=object,
         )
 
 

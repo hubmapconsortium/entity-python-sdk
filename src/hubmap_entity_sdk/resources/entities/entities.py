@@ -56,7 +56,7 @@ class EntitiesResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#accessing-raw-response-data-eg-headers
         """
         return EntitiesResourceWithRawResponse(self)
 
@@ -65,7 +65,7 @@ class EntitiesResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#with_streaming_response
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#with_streaming_response
         """
         return EntitiesResourceWithStreamingResponse(self)
 
@@ -491,7 +491,7 @@ class EntitiesResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> object:
         """Get Provenance Data for Entity.
 
         This returns a PROV JSON compliant
@@ -510,13 +510,12 @@ class EntitiesResource(SyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._get(
             f"/entities/{id}/provenance",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=object,
         )
 
 
@@ -531,7 +530,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#accessing-raw-response-data-eg-headers
         """
         return AsyncEntitiesResourceWithRawResponse(self)
 
@@ -540,7 +539,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#with_streaming_response
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#with_streaming_response
         """
         return AsyncEntitiesResourceWithStreamingResponse(self)
 
@@ -968,7 +967,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> object:
         """Get Provenance Data for Entity.
 
         This returns a PROV JSON compliant
@@ -987,13 +986,12 @@ class AsyncEntitiesResource(AsyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._get(
             f"/entities/{id}/provenance",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=object,
         )
 
 

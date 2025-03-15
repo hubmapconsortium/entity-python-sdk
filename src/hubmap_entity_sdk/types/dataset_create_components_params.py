@@ -2,33 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Iterable
-from typing_extensions import TypedDict
+from typing_extensions import Required, TypedDict
 
-from .dataset_param import DatasetParam
-
-__all__ = ["DatasetCreateComponentsParams", "Dataset"]
+__all__ = ["DatasetCreateComponentsParams"]
 
 
 class DatasetCreateComponentsParams(TypedDict, total=False):
-    creation_action: str
-    """the action event that will describe the activity node.
-
-    Allowed valuese are "Multi-Assay Split"
-    """
-
-    datasets: Iterable[Dataset]
-
-    direct_ancestor_uuids: str
-    """the uuid for the parent multi assay dataset"""
-
-    group_uuid: str
-    """the group uuid for the new component datasets"""
-
-
-class Dataset(DatasetParam):
-    dataset_link_abs_dir: str
-    """
-    The file path to the component's sub-directory beneath the ancestor dataset on
-    globus. The created symbolic link will point to this subdirectory
-    """
+    body: Required[object]
