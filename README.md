@@ -10,17 +10,14 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 ## Documentation
 
-The REST API documentation can be found on [docs.hubmap-entity-sdk.com](https://docs.hubmap-entity-sdk.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.hubmapconsortium.org](https://docs.hubmapconsortium.org). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
 ```sh
-# install from this staging repo
-pip install git+ssh://git@github.com/stainless-sdks/hubmap-entity-sdk-python.git
+# install from PyPI
+pip install --pre hubmap_entity_sdk
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://app.stainless.com/docs/guides/publish), this will become: `pip install --pre hubmap_entity_sdk`
 
 ## Usage
 
@@ -37,7 +34,7 @@ client = HubmapEntitySDK(
 )
 
 entity = client.entities.retrieve(
-    "REPLACE_ME",
+    "hubmap_id or uuid",
 )
 ```
 
@@ -64,7 +61,7 @@ client = AsyncHubmapEntitySDK(
 
 async def main() -> None:
     entity = await client.entities.retrieve(
-        "REPLACE_ME",
+        "hubmap_id or uuid",
     )
 
 
@@ -99,7 +96,7 @@ client = HubmapEntitySDK()
 
 try:
     client.entities.retrieve(
-        "REPLACE_ME",
+        "hubmap_id or uuid",
     )
 except hubmap_entity_sdk.APIConnectionError as e:
     print("The server could not be reached")
@@ -144,13 +141,13 @@ client = HubmapEntitySDK(
 
 # Or, configure per-request:
 client.with_options(max_retries=5).entities.retrieve(
-    "REPLACE_ME",
+    "hubmap_id or uuid",
 )
 ```
 
 ### Timeouts
 
-By default requests time out after 1 minute. You can configure this with a `timeout` option,
+By default requests time out after 29 seconds. You can configure this with a `timeout` option,
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
 
 ```python
@@ -158,7 +155,7 @@ from hubmap_entity_sdk import HubmapEntitySDK
 
 # Configure the default for all requests:
 client = HubmapEntitySDK(
-    # 20 seconds (default is 1 minute)
+    # 20 seconds (default is 29 seconds)
     timeout=20.0,
 )
 
@@ -169,7 +166,7 @@ client = HubmapEntitySDK(
 
 # Override per-request:
 client.with_options(timeout=5.0).entities.retrieve(
-    "REPLACE_ME",
+    "hubmap_id or uuid",
 )
 ```
 
@@ -212,7 +209,7 @@ from hubmap_entity_sdk import HubmapEntitySDK
 
 client = HubmapEntitySDK()
 response = client.entities.with_raw_response.retrieve(
-    "REPLACE_ME",
+    "hubmap_id or uuid",
 )
 print(response.headers.get('X-My-Header'))
 
@@ -220,9 +217,9 @@ entity = response.parse()  # get the object that `entities.retrieve()` would hav
 print(entity)
 ```
 
-These methods return an [`APIResponse`](https://github.com/stainless-sdks/hubmap-entity-sdk-python/tree/main/src/hubmap_entity_sdk/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/hubmapconsortium/entity-python-sdk/tree/main/src/hubmap_entity_sdk/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/stainless-sdks/hubmap-entity-sdk-python/tree/main/src/hubmap_entity_sdk/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/hubmapconsortium/entity-python-sdk/tree/main/src/hubmap_entity_sdk/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -232,7 +229,7 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 
 ```python
 with client.entities.with_streaming_response.retrieve(
-    "REPLACE_ME",
+    "hubmap_id or uuid",
 ) as response:
     print(response.headers.get("X-My-Header"))
 
@@ -328,7 +325,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/hubmap-entity-sdk-python/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/hubmapconsortium/entity-python-sdk/issues) with questions, bugs, or suggestions.
 
 ### Determining the installed version
 

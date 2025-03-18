@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import httpx
 
-from ..._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -25,7 +25,7 @@ class TypeResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#accessing-raw-response-data-eg-headers
         """
         return TypeResourceWithRawResponse(self)
 
@@ -34,7 +34,7 @@ class TypeResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#with_streaming_response
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#with_streaming_response
         """
         return TypeResourceWithStreamingResponse(self)
 
@@ -49,7 +49,7 @@ class TypeResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> object:
         """
         Determines if the Entity type type_a is an instance of type_b
 
@@ -66,13 +66,12 @@ class TypeResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `type_a` but received {type_a!r}")
         if not type_b:
             raise ValueError(f"Expected a non-empty value for `type_b` but received {type_b!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._get(
             f"/entities/type/{type_a}/instanceof/{type_b}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=object,
         )
 
 
@@ -83,7 +82,7 @@ class AsyncTypeResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#accessing-raw-response-data-eg-headers
         """
         return AsyncTypeResourceWithRawResponse(self)
 
@@ -92,7 +91,7 @@ class AsyncTypeResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/hubmap-entity-sdk-python#with_streaming_response
+        For more information, see https://www.github.com/hubmapconsortium/entity-python-sdk#with_streaming_response
         """
         return AsyncTypeResourceWithStreamingResponse(self)
 
@@ -107,7 +106,7 @@ class AsyncTypeResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> object:
         """
         Determines if the Entity type type_a is an instance of type_b
 
@@ -124,13 +123,12 @@ class AsyncTypeResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `type_a` but received {type_a!r}")
         if not type_b:
             raise ValueError(f"Expected a non-empty value for `type_b` but received {type_b!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._get(
             f"/entities/type/{type_a}/instanceof/{type_b}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=object,
         )
 
 

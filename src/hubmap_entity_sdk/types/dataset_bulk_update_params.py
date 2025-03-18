@@ -9,7 +9,4 @@ __all__ = ["DatasetBulkUpdateParams"]
 
 
 class DatasetBulkUpdateParams(TypedDict, total=False):
-    body: Required[Iterable["DatasetParam"]]
-
-
-from .dataset_param import DatasetParam
+    body: Required[Iterable[object]]

@@ -16,14 +16,6 @@ from .parents import (
     ParentsResourceWithStreamingResponse,
     AsyncParentsResourceWithStreamingResponse,
 )
-from .samples import (
-    SamplesResource,
-    AsyncSamplesResource,
-    SamplesResourceWithRawResponse,
-    AsyncSamplesResourceWithRawResponse,
-    SamplesResourceWithStreamingResponse,
-    AsyncSamplesResourceWithStreamingResponse,
-)
 from .uploads import (
     UploadsResource,
     AsyncUploadsResource,
@@ -72,13 +64,13 @@ from .descendants import (
     DescendantsResourceWithStreamingResponse,
     AsyncDescendantsResourceWithStreamingResponse,
 )
-from .entity_types import (
-    EntityTypesResource,
-    AsyncEntityTypesResource,
-    EntityTypesResourceWithRawResponse,
-    AsyncEntityTypesResourceWithRawResponse,
-    EntityTypesResourceWithStreamingResponse,
-    AsyncEntityTypesResourceWithStreamingResponse,
+from .entity_types_all import (
+    EntityTypesAllResource,
+    AsyncEntityTypesAllResource,
+    EntityTypesAllResourceWithRawResponse,
+    AsyncEntityTypesAllResourceWithRawResponse,
+    EntityTypesAllResourceWithStreamingResponse,
+    AsyncEntityTypesAllResourceWithStreamingResponse,
 )
 
 __all__ = [
@@ -88,12 +80,12 @@ __all__ = [
     "AsyncEntitiesResourceWithRawResponse",
     "EntitiesResourceWithStreamingResponse",
     "AsyncEntitiesResourceWithStreamingResponse",
-    "EntityTypesResource",
-    "AsyncEntityTypesResource",
-    "EntityTypesResourceWithRawResponse",
-    "AsyncEntityTypesResourceWithRawResponse",
-    "EntityTypesResourceWithStreamingResponse",
-    "AsyncEntityTypesResourceWithStreamingResponse",
+    "EntityTypesAllResource",
+    "AsyncEntityTypesAllResource",
+    "EntityTypesAllResourceWithRawResponse",
+    "AsyncEntityTypesAllResourceWithRawResponse",
+    "EntityTypesAllResourceWithStreamingResponse",
+    "AsyncEntityTypesAllResourceWithStreamingResponse",
     "AncestorsResource",
     "AsyncAncestorsResource",
     "AncestorsResourceWithRawResponse",
@@ -136,10 +128,4 @@ __all__ = [
     "AsyncUploadsResourceWithRawResponse",
     "UploadsResourceWithStreamingResponse",
     "AsyncUploadsResourceWithStreamingResponse",
-    "SamplesResource",
-    "AsyncSamplesResource",
-    "SamplesResourceWithRawResponse",
-    "AsyncSamplesResourceWithRawResponse",
-    "SamplesResourceWithStreamingResponse",
-    "AsyncSamplesResourceWithStreamingResponse",
 ]

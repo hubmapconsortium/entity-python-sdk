@@ -4,10 +4,10 @@ from __future__ import annotations
 
 from typing_extensions import Literal, TypedDict
 
-__all__ = ["ProvInfoRetrieveParams"]
+__all__ = ["DatasetRetrieveProvInfoParams"]
 
 
-class ProvInfoRetrieveParams(TypedDict, total=False):
+class DatasetRetrieveProvInfoParams(TypedDict, total=False):
     format: Literal["json", "tsv"]
     """A case insensitive string.
 
