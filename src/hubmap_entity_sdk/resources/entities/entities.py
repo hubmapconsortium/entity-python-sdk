@@ -21,7 +21,7 @@ from ...types import (
     entity_list_siblings_params,
     entity_list_collections_params,
 )
-from ..._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
+from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ..._utils import (
     maybe_transform,
     async_maybe_transform,
@@ -114,7 +114,7 @@ class EntitiesResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> object:
         """
         Update the properties of a given Donor, Sample, Dataset or Upload
 
@@ -129,14 +129,13 @@ class EntitiesResource(SyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._put(
             f"/entities/{id}",
             body=maybe_transform(body, entity_update_params.EntityUpdateParams),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=object,
         )
 
     def create_multiple_samples(
@@ -185,7 +184,7 @@ class EntitiesResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> object:
         """
         Determines if the Entity with id is an instance of type
 
@@ -202,13 +201,12 @@ class EntitiesResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         if not type:
             raise ValueError(f"Expected a non-empty value for `type` but received {type!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._get(
             f"/entities/{id}/instanceof/{type}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=object,
         )
 
     def list_ancestor_organs(
@@ -294,7 +292,7 @@ class EntitiesResource(SyncAPIResource):
         *,
         include_old_revisions: Literal["true", "false"] | NotGiven = NOT_GIVEN,
         property_key: Literal["uuid"] | NotGiven = NOT_GIVEN,
-        status: Literal["new", "qa", "published"] | NotGiven = NOT_GIVEN,
+        status: Literal["New", "QA", "Published"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -317,7 +315,7 @@ class EntitiesResource(SyncAPIResource):
               property_key=uuid is provided, rather than entire dictionary representations of
               each node, only the list of matching uuid's will be returned
 
-          status: A case insensitive string. Any value besides 'new', 'qa', and 'published' will
+          status: A case insensitive string. Any value besides 'New', 'Qa', and 'Published' will
               raise an error. If a valid status is provided, only results matching that status
               (if they are datasets) will be returned
 
@@ -355,7 +353,7 @@ class EntitiesResource(SyncAPIResource):
         id: str,
         *,
         property_key: Literal["uuid"] | NotGiven = NOT_GIVEN,
-        status: Literal["new", "qa", "published"] | NotGiven = NOT_GIVEN,
+        status: Literal["New", "QA", "Published"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -373,7 +371,7 @@ class EntitiesResource(SyncAPIResource):
               property_key=uuid is provided, rather than entire dictionary representations of
               each node, only the list of matching uuid's will be returned
 
-          status: A case insensitive string. Any value besides 'new', 'qa', and 'published' will
+          status: A case insensitive string. Any value besides 'New', 'Qa', and 'Published' will
               raise an error. If a valid status is provided, only results matching that status
               (if they are datasets) will be returned
 
@@ -588,7 +586,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> object:
         """
         Update the properties of a given Donor, Sample, Dataset or Upload
 
@@ -603,14 +601,13 @@ class AsyncEntitiesResource(AsyncAPIResource):
         """
         if not id:
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._put(
             f"/entities/{id}",
             body=await async_maybe_transform(body, entity_update_params.EntityUpdateParams),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=object,
         )
 
     async def create_multiple_samples(
@@ -659,7 +656,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> None:
+    ) -> object:
         """
         Determines if the Entity with id is an instance of type
 
@@ -676,13 +673,12 @@ class AsyncEntitiesResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `id` but received {id!r}")
         if not type:
             raise ValueError(f"Expected a non-empty value for `type` but received {type!r}")
-        extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._get(
             f"/entities/{id}/instanceof/{type}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=NoneType,
+            cast_to=object,
         )
 
     async def list_ancestor_organs(
@@ -768,7 +764,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         *,
         include_old_revisions: Literal["true", "false"] | NotGiven = NOT_GIVEN,
         property_key: Literal["uuid"] | NotGiven = NOT_GIVEN,
-        status: Literal["new", "qa", "published"] | NotGiven = NOT_GIVEN,
+        status: Literal["New", "QA", "Published"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -791,7 +787,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
               property_key=uuid is provided, rather than entire dictionary representations of
               each node, only the list of matching uuid's will be returned
 
-          status: A case insensitive string. Any value besides 'new', 'qa', and 'published' will
+          status: A case insensitive string. Any value besides 'New', 'Qa', and 'Published' will
               raise an error. If a valid status is provided, only results matching that status
               (if they are datasets) will be returned
 
@@ -829,7 +825,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         id: str,
         *,
         property_key: Literal["uuid"] | NotGiven = NOT_GIVEN,
-        status: Literal["new", "qa", "published"] | NotGiven = NOT_GIVEN,
+        status: Literal["New", "QA", "Published"] | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -847,7 +843,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
               property_key=uuid is provided, rather than entire dictionary representations of
               each node, only the list of matching uuid's will be returned
 
-          status: A case insensitive string. Any value besides 'new', 'qa', and 'published' will
+          status: A case insensitive string. Any value besides 'New', 'Qa', and 'Published' will
               raise an error. If a valid status is provided, only results matching that status
               (if they are datasets) will be returned
 
