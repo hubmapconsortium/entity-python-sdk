@@ -116,6 +116,16 @@ Types:
 
 ```python
 from hubmap_entity_sdk.types import (
+    Collection,
+    Dataset,
+    Donor,
+    DonorMetadata,
+    Epicollction,
+    File,
+    Person,
+    Publication,
+    Sample,
+    Upload,
     DatasetBulkUpdateResponse,
     DatasetCreateComponentsResponse,
     DatasetListDonorsResponse,
