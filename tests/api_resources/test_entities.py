@@ -161,6 +161,48 @@ class TestEntities:
 
     @pytest.mark.skip()
     @parametrize
+    def test_method_flush_cache(self, client: HubmapEntitySDK) -> None:
+        entity = client.entities.flush_cache(
+            "id",
+        )
+        assert entity is None
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_raw_response_flush_cache(self, client: HubmapEntitySDK) -> None:
+        response = client.entities.with_raw_response.flush_cache(
+            "id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        entity = response.parse()
+        assert entity is None
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_streaming_response_flush_cache(self, client: HubmapEntitySDK) -> None:
+        with client.entities.with_streaming_response.flush_cache(
+            "id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            entity = response.parse()
+            assert entity is None
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    def test_path_params_flush_cache(self, client: HubmapEntitySDK) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            client.entities.with_raw_response.flush_cache(
+                "",
+            )
+
+    @pytest.mark.skip()
+    @parametrize
     def test_method_is_instance_of(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.is_instance_of(
             type="type",
@@ -680,6 +722,48 @@ class TestAsyncEntities:
     async def test_path_params_create_multiple_samples(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `count` but received ''"):
             await async_client.entities.with_raw_response.create_multiple_samples(
+                "",
+            )
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_method_flush_cache(self, async_client: AsyncHubmapEntitySDK) -> None:
+        entity = await async_client.entities.flush_cache(
+            "id",
+        )
+        assert entity is None
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_raw_response_flush_cache(self, async_client: AsyncHubmapEntitySDK) -> None:
+        response = await async_client.entities.with_raw_response.flush_cache(
+            "id",
+        )
+
+        assert response.is_closed is True
+        assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+        entity = await response.parse()
+        assert entity is None
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_streaming_response_flush_cache(self, async_client: AsyncHubmapEntitySDK) -> None:
+        async with async_client.entities.with_streaming_response.flush_cache(
+            "id",
+        ) as response:
+            assert not response.is_closed
+            assert response.http_request.headers.get("X-Stainless-Lang") == "python"
+
+            entity = await response.parse()
+            assert entity is None
+
+        assert cast(Any, response.is_closed) is True
+
+    @pytest.mark.skip()
+    @parametrize
+    async def test_path_params_flush_cache(self, async_client: AsyncHubmapEntitySDK) -> None:
+        with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
+            await async_client.entities.with_raw_response.flush_cache(
                 "",
             )
 
