@@ -24,7 +24,7 @@ from ._utils import (
     get_async_library,
 )
 from ._version import __version__
-from .resources import doi, parents, samples, uploads, children, ancestors, descendants, entity_types_all
+from .resources import doi, parents, uploads, children, datasets, ancestors, descendants, entity_types_all
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import APIStatusError
 from ._base_client import (
@@ -32,7 +32,6 @@ from ._base_client import (
     SyncAPIClient,
     AsyncAPIClient,
 )
-from .resources.datasets import datasets
 from .resources.entities import entities
 
 __all__ = [
@@ -57,7 +56,6 @@ class HubmapEntitySDK(SyncAPIClient):
     doi: doi.DoiResource
     datasets: datasets.DatasetsResource
     uploads: uploads.UploadsResource
-    samples: samples.SamplesResource
     with_raw_response: HubmapEntitySDKWithRawResponse
     with_streaming_response: HubmapEntitySDKWithStreamedResponse
 
@@ -120,7 +118,6 @@ class HubmapEntitySDK(SyncAPIClient):
         self.doi = doi.DoiResource(self)
         self.datasets = datasets.DatasetsResource(self)
         self.uploads = uploads.UploadsResource(self)
-        self.samples = samples.SamplesResource(self)
         self.with_raw_response = HubmapEntitySDKWithRawResponse(self)
         self.with_streaming_response = HubmapEntitySDKWithStreamedResponse(self)
 
@@ -241,7 +238,6 @@ class AsyncHubmapEntitySDK(AsyncAPIClient):
     doi: doi.AsyncDoiResource
     datasets: datasets.AsyncDatasetsResource
     uploads: uploads.AsyncUploadsResource
-    samples: samples.AsyncSamplesResource
     with_raw_response: AsyncHubmapEntitySDKWithRawResponse
     with_streaming_response: AsyncHubmapEntitySDKWithStreamedResponse
 
@@ -304,7 +300,6 @@ class AsyncHubmapEntitySDK(AsyncAPIClient):
         self.doi = doi.AsyncDoiResource(self)
         self.datasets = datasets.AsyncDatasetsResource(self)
         self.uploads = uploads.AsyncUploadsResource(self)
-        self.samples = samples.AsyncSamplesResource(self)
         self.with_raw_response = AsyncHubmapEntitySDKWithRawResponse(self)
         self.with_streaming_response = AsyncHubmapEntitySDKWithStreamedResponse(self)
 
@@ -426,7 +421,6 @@ class HubmapEntitySDKWithRawResponse:
         self.doi = doi.DoiResourceWithRawResponse(client.doi)
         self.datasets = datasets.DatasetsResourceWithRawResponse(client.datasets)
         self.uploads = uploads.UploadsResourceWithRawResponse(client.uploads)
-        self.samples = samples.SamplesResourceWithRawResponse(client.samples)
 
 
 class AsyncHubmapEntitySDKWithRawResponse:
@@ -440,7 +434,6 @@ class AsyncHubmapEntitySDKWithRawResponse:
         self.doi = doi.AsyncDoiResourceWithRawResponse(client.doi)
         self.datasets = datasets.AsyncDatasetsResourceWithRawResponse(client.datasets)
         self.uploads = uploads.AsyncUploadsResourceWithRawResponse(client.uploads)
-        self.samples = samples.AsyncSamplesResourceWithRawResponse(client.samples)
 
 
 class HubmapEntitySDKWithStreamedResponse:
@@ -454,7 +447,6 @@ class HubmapEntitySDKWithStreamedResponse:
         self.doi = doi.DoiResourceWithStreamingResponse(client.doi)
         self.datasets = datasets.DatasetsResourceWithStreamingResponse(client.datasets)
         self.uploads = uploads.UploadsResourceWithStreamingResponse(client.uploads)
-        self.samples = samples.SamplesResourceWithStreamingResponse(client.samples)
 
 
 class AsyncHubmapEntitySDKWithStreamedResponse:
@@ -470,7 +462,6 @@ class AsyncHubmapEntitySDKWithStreamedResponse:
         self.doi = doi.AsyncDoiResourceWithStreamingResponse(client.doi)
         self.datasets = datasets.AsyncDatasetsResourceWithStreamingResponse(client.datasets)
         self.uploads = uploads.AsyncUploadsResourceWithStreamingResponse(client.uploads)
-        self.samples = samples.AsyncSamplesResourceWithStreamingResponse(client.samples)
 
 
 Client = HubmapEntitySDK

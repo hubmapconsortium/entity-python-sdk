@@ -26,10 +26,10 @@ class EntityListSiblingsParams(TypedDict, total=False):
     matching uuid's will be returned
     """
 
-    status: Literal["new", "qa", "published"]
+    status: Literal["New", "QA", "Published"]
     """A case insensitive string.
 
-    Any value besides 'new', 'qa', and 'published' will raise an error. If a valid
+    Any value besides 'New', 'Qa', and 'Published' will raise an error. If a valid
     status is provided, only results matching that status (if they are datasets)
     will be returned
     """
