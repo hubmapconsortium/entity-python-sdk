@@ -1,6 +1,6 @@
 [project]
 name = "hubmap_entity_sdk"
-version = "0.0.1-alpha.0"
+version = "2.0.0-alpha.1"
 description = "The official Python library for the hubmap-entity-sdk API"
 dynamic = ["readme"]
 license = "MIT"
