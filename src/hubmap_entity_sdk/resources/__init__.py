@@ -16,14 +16,6 @@ from .parents import (
     ParentsResourceWithStreamingResponse,
     AsyncParentsResourceWithStreamingResponse,
 )
-from .samples import (
-    SamplesResource,
-    AsyncSamplesResource,
-    SamplesResourceWithRawResponse,
-    AsyncSamplesResourceWithRawResponse,
-    SamplesResourceWithStreamingResponse,
-    AsyncSamplesResourceWithStreamingResponse,
-)
 from .uploads import (
     UploadsResource,
     AsyncUploadsResource,
@@ -136,10 +128,4 @@ __all__ = [
     "AsyncUploadsResourceWithRawResponse",
     "UploadsResourceWithStreamingResponse",
     "AsyncUploadsResourceWithStreamingResponse",
-    "SamplesResource",
-    "AsyncSamplesResource",
-    "SamplesResourceWithRawResponse",
-    "AsyncSamplesResourceWithRawResponse",
-    "SamplesResourceWithStreamingResponse",
-    "AsyncSamplesResourceWithStreamingResponse",
 ]

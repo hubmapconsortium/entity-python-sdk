@@ -7,6 +7,7 @@ from typing import Any, cast
 
 import pytest
 
+from tests.utils import assert_matches_type
 from hubmap_entity_sdk import HubmapEntitySDK, AsyncHubmapEntitySDK
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
@@ -22,7 +23,7 @@ class TestType:
             type_b="type_b",
             type_a="type_a",
         )
-        assert type is None
+        assert_matches_type(object, type, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -35,7 +36,7 @@ class TestType:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         type = response.parse()
-        assert type is None
+        assert_matches_type(object, type, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -48,7 +49,7 @@ class TestType:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             type = response.parse()
-            assert type is None
+            assert_matches_type(object, type, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -78,7 +79,7 @@ class TestAsyncType:
             type_b="type_b",
             type_a="type_a",
         )
-        assert type is None
+        assert_matches_type(object, type, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -91,7 +92,7 @@ class TestAsyncType:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         type = await response.parse()
-        assert type is None
+        assert_matches_type(object, type, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -104,7 +105,7 @@ class TestAsyncType:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             type = await response.parse()
-            assert type is None
+            assert_matches_type(object, type, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 

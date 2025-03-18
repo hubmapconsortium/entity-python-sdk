@@ -72,7 +72,7 @@ class TestEntities:
         entity = client.entities.update(
             id="id",
         )
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -81,7 +81,7 @@ class TestEntities:
             id="id",
             body={},
         )
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -93,7 +93,7 @@ class TestEntities:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         entity = response.parse()
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -105,7 +105,7 @@ class TestEntities:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             entity = response.parse()
-            assert entity is None
+            assert_matches_type(object, entity, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -166,7 +166,7 @@ class TestEntities:
             type="type",
             id="id",
         )
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -179,7 +179,7 @@ class TestEntities:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         entity = response.parse()
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -192,7 +192,7 @@ class TestEntities:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             entity = response.parse()
-            assert entity is None
+            assert_matches_type(object, entity, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -319,7 +319,7 @@ class TestEntities:
             id="id",
             include_old_revisions="true",
             property_key="uuid",
-            status="new",
+            status="New",
         )
         assert_matches_type(EntityListSiblingsResponse, entity, path=["response"])
 
@@ -371,7 +371,7 @@ class TestEntities:
         entity = client.entities.list_tuplets(
             id="id",
             property_key="uuid",
-            status="new",
+            status="New",
         )
         assert_matches_type(EntityListTupletsResponse, entity, path=["response"])
 
@@ -596,7 +596,7 @@ class TestAsyncEntities:
         entity = await async_client.entities.update(
             id="id",
         )
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -605,7 +605,7 @@ class TestAsyncEntities:
             id="id",
             body={},
         )
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -617,7 +617,7 @@ class TestAsyncEntities:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         entity = await response.parse()
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -629,7 +629,7 @@ class TestAsyncEntities:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             entity = await response.parse()
-            assert entity is None
+            assert_matches_type(object, entity, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -690,7 +690,7 @@ class TestAsyncEntities:
             type="type",
             id="id",
         )
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -703,7 +703,7 @@ class TestAsyncEntities:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         entity = await response.parse()
-        assert entity is None
+        assert_matches_type(object, entity, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -716,7 +716,7 @@ class TestAsyncEntities:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             entity = await response.parse()
-            assert entity is None
+            assert_matches_type(object, entity, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -843,7 +843,7 @@ class TestAsyncEntities:
             id="id",
             include_old_revisions="true",
             property_key="uuid",
-            status="new",
+            status="New",
         )
         assert_matches_type(EntityListSiblingsResponse, entity, path=["response"])
 
@@ -895,7 +895,7 @@ class TestAsyncEntities:
         entity = await async_client.entities.list_tuplets(
             id="id",
             property_key="uuid",
-            status="new",
+            status="New",
         )
         assert_matches_type(EntityListTupletsResponse, entity, path=["response"])
 

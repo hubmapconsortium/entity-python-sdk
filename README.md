@@ -10,7 +10,7 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 ## Documentation
 
-The REST API documentation can be found on [docs.hubmap-entity-sdk.com](https://docs.hubmap-entity-sdk.com). The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.hubmapconsortium.org](https://docs.hubmapconsortium.org). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
 
@@ -34,7 +34,7 @@ client = HubmapEntitySDK(
 )
 
 entity = client.entities.retrieve(
-    "REPLACE_ME",
+    "hubmap_id or uuid",
 )
 ```
 
@@ -61,7 +61,7 @@ client = AsyncHubmapEntitySDK(
 
 async def main() -> None:
     entity = await client.entities.retrieve(
-        "REPLACE_ME",
+        "hubmap_id or uuid",
     )
 
 
@@ -96,7 +96,7 @@ client = HubmapEntitySDK()
 
 try:
     client.entities.retrieve(
-        "REPLACE_ME",
+        "hubmap_id or uuid",
     )
 except hubmap_entity_sdk.APIConnectionError as e:
     print("The server could not be reached")
@@ -141,13 +141,13 @@ client = HubmapEntitySDK(
 
 # Or, configure per-request:
 client.with_options(max_retries=5).entities.retrieve(
-    "REPLACE_ME",
+    "hubmap_id or uuid",
 )
 ```
 
 ### Timeouts
 
-By default requests time out after 1 minute. You can configure this with a `timeout` option,
+By default requests time out after 29 seconds. You can configure this with a `timeout` option,
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
 
 ```python
@@ -155,7 +155,7 @@ from hubmap_entity_sdk import HubmapEntitySDK
 
 # Configure the default for all requests:
 client = HubmapEntitySDK(
-    # 20 seconds (default is 1 minute)
+    # 20 seconds (default is 29 seconds)
     timeout=20.0,
 )
 
@@ -166,7 +166,7 @@ client = HubmapEntitySDK(
 
 # Override per-request:
 client.with_options(timeout=5.0).entities.retrieve(
-    "REPLACE_ME",
+    "hubmap_id or uuid",
 )
 ```
 
@@ -209,7 +209,7 @@ from hubmap_entity_sdk import HubmapEntitySDK
 
 client = HubmapEntitySDK()
 response = client.entities.with_raw_response.retrieve(
-    "REPLACE_ME",
+    "hubmap_id or uuid",
 )
 print(response.headers.get('X-My-Header'))
 
@@ -229,7 +229,7 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 
 ```python
 with client.entities.with_streaming_response.retrieve(
-    "REPLACE_ME",
+    "hubmap_id or uuid",
 ) as response:
     print(response.headers.get("X-My-Header"))
 

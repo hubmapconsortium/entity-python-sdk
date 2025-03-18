@@ -4,10 +4,10 @@ from __future__ import annotations
 
 from typing_extensions import Literal, TypedDict
 
-__all__ = ["DatasetRetrieveRevisionsParams"]
+__all__ = ["DatasetListRevisionsParams"]
 
 
-class DatasetRetrieveRevisionsParams(TypedDict, total=False):
+class DatasetListRevisionsParams(TypedDict, total=False):
     include_dataset: Literal["true", "false"]
     """A case insensitive string.
 
