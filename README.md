@@ -2,7 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/hubmap_entity_sdk.svg)](https://pypi.org/project/hubmap_entity_sdk/)
 
-The HuBMAP Entity SDK Python library provides convenient access to the HuBMAP Entity SDK REST API from any Python 3.8+
+The HuBMAP Entity SDK Python library provides convenient access to the [HuBMAP Entity REST API](https://github.com/hubmapconsortium/entity-api) from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,
 and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
 
@@ -38,10 +38,28 @@ entity = client.entities.retrieve(
 )
 ```
 
-While you can provide a `bearer_token` keyword argument,
+There's no Globus groups token is required to access public entities, so this `bearer_token` is optional to create the SDK client.
+
+While you can provide a `bearer_token` keyword argument to access the full details of any given entity,
 we recommend using [python-dotenv](https://pypi.org/project/python-dotenv/)
 to add `HUBMAP_ENTITY_SDK_BEARER_TOKEN="My Bearer Token"` to your `.env` file
 so that your Bearer Token is not stored in source control.
+
+Alternatively, the token can be provided on a case-by-case basis. 
+
+```python
+import os
+from hubmap_entity_sdk import HubmapEntitySDK
+
+client = HubmapEntitySDK()
+
+entity = client.entities.retrieve(
+    id = "hubmap_id or uuid",
+    extra_headers = {"Authorization": "Bearer <REPLACE_WITH_YOUR_TOKEN>"}
+)
+```
+
+The above example can be used to retrieve a non-public entity that a valid Globus groups token is required.
 
 ## Async usage
 
@@ -121,6 +139,8 @@ Error codes are as follows:
 | 429         | `RateLimitError`           |
 | >=500       | `InternalServerError`      |
 | N/A         | `APIConnectionError`       |
+
+Note: When the response payload is larger than 10 MB, `client.descendants.retrieve(id)` will return a 303 status code with a URL to AWS S3 bucket for the clients to download the complete result in a separate call.
 
 ### Retries
 
