@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.3 (2025-03-27)
+
+Full Changelog: [v2.0.0-alpha.2...v2.0.0-alpha.3](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.2...v2.0.0-alpha.3)
+
+### Chores
+
+* fix typos ([#23](https://github.com/hubmapconsortium/entity-python-sdk/issues/23)) ([b0824a5](https://github.com/hubmapconsortium/entity-python-sdk/commit/b0824a5b96e17429d73f8fc8d017c3f1d15cc533))
+
 ## 2.0.0-alpha.2 (2025-03-18)
 
 Full Changelog: [v2.0.0-alpha.1...v2.0.0-alpha.2](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.1...v2.0.0-alpha.2)
