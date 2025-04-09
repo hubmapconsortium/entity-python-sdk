@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.0-alpha.4 (2025-04-09)
+
+Full Changelog: [v2.0.0-alpha.3...v2.0.0-alpha.4](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.3...v2.0.0-alpha.4)
+
+### Chores
+
+* **internal:** remove trailing character ([#26](https://github.com/hubmapconsortium/entity-python-sdk/issues/26)) ([fe9fc29](https://github.com/hubmapconsortium/entity-python-sdk/commit/fe9fc2978e4b442a23f1c3ee224a74a6042c2b98))
+* **internal:** slight transform perf improvement ([#29](https://github.com/hubmapconsortium/entity-python-sdk/issues/29)) ([2647bcf](https://github.com/hubmapconsortium/entity-python-sdk/commit/2647bcf3c4c800f766423c3dcc6197d33df83225))
+
 ## 2.0.0-alpha.3 (2025-03-27)
 
 Full Changelog: [v2.0.0-alpha.2...v2.0.0-alpha.3](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.2...v2.0.0-alpha.3)
