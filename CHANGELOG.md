@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.0.0-alpha.5 (2025-04-12)
+
+Full Changelog: [v2.0.0-alpha.4...v2.0.0-alpha.5](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.4...v2.0.0-alpha.5)
+
+### Bug Fixes
+
+* **perf:** optimize some hot paths ([368bea0](https://github.com/hubmapconsortium/entity-python-sdk/commit/368bea0cf6cead2594f6b2071f17d2a2077ab607))
+* **perf:** skip traversing types for NotGiven values ([1ff94b8](https://github.com/hubmapconsortium/entity-python-sdk/commit/1ff94b86dcce46e550f68d81b86317a01f4c560f))
+
+
+### Chores
+
+* **internal:** expand CI branch coverage ([d531898](https://github.com/hubmapconsortium/entity-python-sdk/commit/d531898f33ae5471d0e36e08ce53c79903d272f1))
+* **internal:** reduce CI branch coverage ([f27af14](https://github.com/hubmapconsortium/entity-python-sdk/commit/f27af14a0a723e664bf9baff724178601d0f0dbb))
+
 ## 2.0.0-alpha.4 (2025-04-09)
 
 Full Changelog: [v2.0.0-alpha.3...v2.0.0-alpha.4](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.3...v2.0.0-alpha.4)
