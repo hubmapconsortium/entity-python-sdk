@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.0-alpha.6 (2025-04-15)
+
+Full Changelog: [v2.0.0-alpha.5...v2.0.0-alpha.6](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.5...v2.0.0-alpha.6)
+
+### Chores
+
+* **client:** minor internal fixes ([2239fdc](https://github.com/hubmapconsortium/entity-python-sdk/commit/2239fdc287b45b84949aab9caee9dc2a09b6cefb))
+* **internal:** update pyright settings ([460bfb6](https://github.com/hubmapconsortium/entity-python-sdk/commit/460bfb6dd2bf61162718d420951c3b20081ed8e3))
+
 ## 2.0.0-alpha.5 (2025-04-12)
 
 Full Changelog: [v2.0.0-alpha.4...v2.0.0-alpha.5](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.4...v2.0.0-alpha.5)
