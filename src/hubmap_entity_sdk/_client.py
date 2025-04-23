@@ -19,10 +19,7 @@ from ._types import (
     ProxiesTypes,
     RequestOptions,
 )
-from ._utils import (
-    is_given,
-    get_async_library,
-)
+from ._utils import is_given, get_async_library
 from ._version import __version__
 from .resources import doi, parents, uploads, children, datasets, ancestors, descendants, entity_types_all
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
