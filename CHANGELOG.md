@@ -1,5 +1,24 @@
 # Changelog
 
+## 2.0.0-alpha.9 (2025-04-24)
+
+Full Changelog: [v2.0.0-alpha.8...v2.0.0-alpha.9](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.8...v2.0.0-alpha.9)
+
+### Bug Fixes
+
+* **pydantic v1:** more robust ModelField.annotation check ([391134e](https://github.com/hubmapconsortium/entity-python-sdk/commit/391134eb9c51f557e8002453ba5541e682051748))
+
+
+### Chores
+
+* broadly detect json family of content-type headers ([30016c2](https://github.com/hubmapconsortium/entity-python-sdk/commit/30016c26d05a36d50d85918eb4a47ef4a4d4f7f1))
+* **ci:** add timeout thresholds for CI jobs ([450c68c](https://github.com/hubmapconsortium/entity-python-sdk/commit/450c68cfb629bc8ec623127682e27ec1fcb7f27c))
+* **ci:** only use depot for staging repos ([d396fe5](https://github.com/hubmapconsortium/entity-python-sdk/commit/d396fe5a12e35c6dda03f29b5ed3f2804b66f110))
+* **internal:** codegen related update ([253a0b9](https://github.com/hubmapconsortium/entity-python-sdk/commit/253a0b9cab5265efc1d4b9b310f539fc159e102e))
+* **internal:** fix list file params ([e602a9c](https://github.com/hubmapconsortium/entity-python-sdk/commit/e602a9c84299af8efd2c2b39ad18ebf2a84f7458))
+* **internal:** import reformatting ([75ad1ca](https://github.com/hubmapconsortium/entity-python-sdk/commit/75ad1ca17a62f704d9e8f1af6e2e5c5a0abeafc7))
+* **internal:** refactor retries to not use recursion ([92c3694](https://github.com/hubmapconsortium/entity-python-sdk/commit/92c3694e1495fa631f4373aa88dd452ca6945106))
+
 ## 2.0.0-alpha.8 (2025-04-19)
 
 Full Changelog: [v2.0.0-alpha.7...v2.0.0-alpha.8](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.7...v2.0.0-alpha.8)
