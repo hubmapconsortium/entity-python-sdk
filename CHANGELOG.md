@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.10 (2025-05-09)
+
+Full Changelog: [v2.0.0-alpha.9...v2.0.0-alpha.10](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.9...v2.0.0-alpha.10)
+
+### Chores
+
+* **internal:** avoid errors for isinstance checks on proxies ([ea5c6d6](https://github.com/hubmapconsortium/entity-python-sdk/commit/ea5c6d68a5c19635941e23d9e4b9d2baf94c69d5))
+
 ## 2.0.0-alpha.9 (2025-04-24)
 
 Full Changelog: [v2.0.0-alpha.8...v2.0.0-alpha.9](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.8...v2.0.0-alpha.9)
