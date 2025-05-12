@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.11 (2025-05-10)
+
+Full Changelog: [v2.0.0-alpha.10...v2.0.0-alpha.11](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.10...v2.0.0-alpha.11)
+
+### Bug Fixes
+
+* **package:** support direct resource imports ([5bae948](https://github.com/hubmapconsortium/entity-python-sdk/commit/5bae9484190c7559156a1d2dfa6c12cdae65b041))
+
 ## 2.0.0-alpha.10 (2025-05-09)
 
 Full Changelog: [v2.0.0-alpha.9...v2.0.0-alpha.10](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.9...v2.0.0-alpha.10)
