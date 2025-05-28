@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0-alpha.15 (2025-05-28)
+
+Full Changelog: [v2.0.0-alpha.14...v2.0.0-alpha.15](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.14...v2.0.0-alpha.15)
+
+### Bug Fixes
+
+* **docs/api:** remove references to nonexistent types ([3dfd62d](https://github.com/hubmapconsortium/entity-python-sdk/commit/3dfd62d9cd3ef2a82fb0a396e9ddf63df4206b1c))
+
+
+### Chores
+
+* **docs:** grammar improvements ([a3b3ebf](https://github.com/hubmapconsortium/entity-python-sdk/commit/a3b3ebfcb34ffa0175ee5489a697b936f7980e36))
+
 ## 2.0.0-alpha.14 (2025-05-17)
 
 Full Changelog: [v2.0.0-alpha.13...v2.0.0-alpha.14](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.13...v2.0.0-alpha.14)
