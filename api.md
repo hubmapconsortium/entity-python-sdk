@@ -4,46 +4,36 @@ Types:
 
 ```python
 from hubmap_entity_sdk.types import (
-    EntityRetrieveResponse,
-    EntityUpdateResponse,
     EntityCreateMultipleSamplesResponse,
-    EntityIsInstanceOfResponse,
     EntityListAncestorOrgansResponse,
     EntityListCollectionsResponse,
     EntityListSiblingsResponse,
     EntityListTupletsResponse,
     EntityListUploadsResponse,
     EntityRetrieveGlobusURLResponse,
-    EntityRetrieveProvenanceResponse,
 )
 ```
 
 Methods:
 
-- <code title="get /entities/{id}">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">retrieve</a>(id) -> <a href="./src/hubmap_entity_sdk/types/entity_retrieve_response.py">object</a></code>
-- <code title="put /entities/{id}">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">update</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/entity_update_params.py">params</a>) -> <a href="./src/hubmap_entity_sdk/types/entity_update_response.py">object</a></code>
+- <code title="get /entities/{id}">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">retrieve</a>(id) -> object</code>
+- <code title="put /entities/{id}">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">update</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/entity_update_params.py">params</a>) -> object</code>
 - <code title="post /entities/multiple-samples/{count}">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">create_multiple_samples</a>(count) -> <a href="./src/hubmap_entity_sdk/types/entity_create_multiple_samples_response.py">EntityCreateMultipleSamplesResponse</a></code>
 - <code title="delete /entities/{id}/flush-cache">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">flush_cache</a>(id) -> None</code>
-- <code title="get /entities/{id}/instanceof/{type}">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">is_instance_of</a>(type, \*, id) -> <a href="./src/hubmap_entity_sdk/types/entity_is_instance_of_response.py">object</a></code>
+- <code title="get /entities/{id}/instanceof/{type}">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">is_instance_of</a>(type, \*, id) -> object</code>
 - <code title="get /entities/{id}/ancestor-organs">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">list_ancestor_organs</a>(id) -> <a href="./src/hubmap_entity_sdk/types/entity_list_ancestor_organs_response.py">EntityListAncestorOrgansResponse</a></code>
 - <code title="get /entities/{id}/collections">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">list_collections</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/entity_list_collections_params.py">params</a>) -> <a href="./src/hubmap_entity_sdk/types/entity_list_collections_response.py">EntityListCollectionsResponse</a></code>
 - <code title="get /entities/{id}/siblings">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">list_siblings</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/entity_list_siblings_params.py">params</a>) -> <a href="./src/hubmap_entity_sdk/types/entity_list_siblings_response.py">EntityListSiblingsResponse</a></code>
 - <code title="get /entities/{id}/tuplets">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">list_tuplets</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/entity_list_tuplets_params.py">params</a>) -> <a href="./src/hubmap_entity_sdk/types/entity_list_tuplets_response.py">EntityListTupletsResponse</a></code>
 - <code title="get /entities/{id}/uploads">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">list_uploads</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/entity_list_uploads_params.py">params</a>) -> <a href="./src/hubmap_entity_sdk/types/entity_list_uploads_response.py">EntityListUploadsResponse</a></code>
 - <code title="get /entities/{id}/globus-url">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">retrieve_globus_url</a>(id) -> str</code>
-- <code title="get /entities/{id}/provenance">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">retrieve_provenance</a>(id) -> <a href="./src/hubmap_entity_sdk/types/entity_retrieve_provenance_response.py">object</a></code>
+- <code title="get /entities/{id}/provenance">client.entities.<a href="./src/hubmap_entity_sdk/resources/entities/entities.py">retrieve_provenance</a>(id) -> object</code>
 
 ## Type
 
-Types:
-
-```python
-from hubmap_entity_sdk.types.entities import TypeIsInstanceOfResponse
-```
-
 Methods:
 
-- <code title="get /entities/type/{type_a}/instanceof/{type_b}">client.entities.type.<a href="./src/hubmap_entity_sdk/resources/entities/type.py">is_instance_of</a>(type_b, \*, type_a) -> <a href="./src/hubmap_entity_sdk/types/entities/type_is_instance_of_response.py">object</a></code>
+- <code title="get /entities/type/{type_a}/instanceof/{type_b}">client.entities.type.<a href="./src/hubmap_entity_sdk/resources/entities/type.py">is_instance_of</a>(type_b, \*, type_a) -> object</code>
 
 # EntityTypesAll
 
@@ -131,16 +121,9 @@ from hubmap_entity_sdk.types import (
     DatasetCreateComponentsResponse,
     DatasetListDonorsResponse,
     DatasetListOrgansResponse,
-    DatasetListRevisionsResponse,
     DatasetListSamplesResponse,
-    DatasetListUnpublishedResponse,
-    DatasetRetractResponse,
-    DatasetRetrieveLatestRevisionResponse,
     DatasetRetrievePairedDatasetResponse,
-    DatasetRetrieveProvInfoResponse,
-    DatasetRetrieveProvMetadataResponse,
     DatasetRetrieveRevisionResponse,
-    DatasetRetrieveSankeyDataResponse,
 )
 ```
 
@@ -150,16 +133,16 @@ Methods:
 - <code title="post /datasets/components">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">create_components</a>(\*\*<a href="src/hubmap_entity_sdk/types/dataset_create_components_params.py">params</a>) -> <a href="./src/hubmap_entity_sdk/types/dataset_create_components_response.py">DatasetCreateComponentsResponse</a></code>
 - <code title="get /datasets/{id}/donors">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">list_donors</a>(id) -> <a href="./src/hubmap_entity_sdk/types/dataset_list_donors_response.py">DatasetListDonorsResponse</a></code>
 - <code title="get /datasets/{id}/organs">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">list_organs</a>(id) -> <a href="./src/hubmap_entity_sdk/types/dataset_list_organs_response.py">DatasetListOrgansResponse</a></code>
-- <code title="get /datasets/{id}/revisions">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">list_revisions</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/dataset_list_revisions_params.py">params</a>) -> <a href="./src/hubmap_entity_sdk/types/dataset_list_revisions_response.py">object</a></code>
+- <code title="get /datasets/{id}/revisions">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">list_revisions</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/dataset_list_revisions_params.py">params</a>) -> object</code>
 - <code title="get /datasets/{id}/samples">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">list_samples</a>(id) -> <a href="./src/hubmap_entity_sdk/types/dataset_list_samples_response.py">DatasetListSamplesResponse</a></code>
-- <code title="get /datasets/unpublished">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">list_unpublished</a>(\*\*<a href="src/hubmap_entity_sdk/types/dataset_list_unpublished_params.py">params</a>) -> <a href="./src/hubmap_entity_sdk/types/dataset_list_unpublished_response.py">object</a></code>
-- <code title="put /datasets/{id}/retract">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retract</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/dataset_retract_params.py">params</a>) -> <a href="./src/hubmap_entity_sdk/types/dataset_retract_response.py">object</a></code>
-- <code title="get /datasets/{id}/latest-revision">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retrieve_latest_revision</a>(id) -> <a href="./src/hubmap_entity_sdk/types/dataset_retrieve_latest_revision_response.py">object</a></code>
+- <code title="get /datasets/unpublished">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">list_unpublished</a>(\*\*<a href="src/hubmap_entity_sdk/types/dataset_list_unpublished_params.py">params</a>) -> object</code>
+- <code title="put /datasets/{id}/retract">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retract</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/dataset_retract_params.py">params</a>) -> object</code>
+- <code title="get /datasets/{id}/latest-revision">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retrieve_latest_revision</a>(id) -> object</code>
 - <code title="get /datasets/{id}/paired-dataset">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retrieve_paired_dataset</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/dataset_retrieve_paired_dataset_params.py">params</a>) -> <a href="./src/hubmap_entity_sdk/types/dataset_retrieve_paired_dataset_response.py">DatasetRetrievePairedDatasetResponse</a></code>
-- <code title="get /datasets/{id}/prov-info">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retrieve_prov_info</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/dataset_retrieve_prov_info_params.py">params</a>) -> <a href="./src/hubmap_entity_sdk/types/dataset_retrieve_prov_info_response.py">object</a></code>
-- <code title="get /datasets/{id}/prov-metadata">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retrieve_prov_metadata</a>(id) -> <a href="./src/hubmap_entity_sdk/types/dataset_retrieve_prov_metadata_response.py">object</a></code>
+- <code title="get /datasets/{id}/prov-info">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retrieve_prov_info</a>(id, \*\*<a href="src/hubmap_entity_sdk/types/dataset_retrieve_prov_info_params.py">params</a>) -> object</code>
+- <code title="get /datasets/{id}/prov-metadata">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retrieve_prov_metadata</a>(id) -> object</code>
 - <code title="get /datasets/{id}/revision">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retrieve_revision</a>(id) -> <a href="./src/hubmap_entity_sdk/types/dataset_retrieve_revision_response.py">DatasetRetrieveRevisionResponse</a></code>
-- <code title="get /datasets/sankey_data">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retrieve_sankey_data</a>() -> <a href="./src/hubmap_entity_sdk/types/dataset_retrieve_sankey_data_response.py">object</a></code>
+- <code title="get /datasets/sankey_data">client.datasets.<a href="./src/hubmap_entity_sdk/resources/datasets.py">retrieve_sankey_data</a>() -> object</code>
 
 # Uploads
 
