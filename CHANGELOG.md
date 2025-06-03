@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0-alpha.16 (2025-06-03)
+
+Full Changelog: [v2.0.0-alpha.15...v2.0.0-alpha.16](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.15...v2.0.0-alpha.16)
+
+### Features
+
+* **client:** add follow_redirects request option ([977cd2a](https://github.com/hubmapconsortium/entity-python-sdk/commit/977cd2a3fb24516f610d9b644a041c5e80136e25))
+
+
+### Chores
+
+* **docs:** remove reference to rye shell ([f9f5b82](https://github.com/hubmapconsortium/entity-python-sdk/commit/f9f5b825050f8f9aa4559d92090cb126078127a4))
+
 ## 2.0.0-alpha.15 (2025-05-28)
 
 Full Changelog: [v2.0.0-alpha.14...v2.0.0-alpha.15](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.14...v2.0.0-alpha.15)
