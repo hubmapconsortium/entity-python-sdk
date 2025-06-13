@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0-alpha.17 (2025-06-13)
+
+Full Changelog: [v2.0.0-alpha.16...v2.0.0-alpha.17](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.16...v2.0.0-alpha.17)
+
+### Bug Fixes
+
+* **client:** correctly parse binary response | stream ([42caccd](https://github.com/hubmapconsortium/entity-python-sdk/commit/42caccd28b1b9976a19ee896f7062a757c5111de))
+
+
+### Chores
+
+* **tests:** run tests in parallel ([66feb68](https://github.com/hubmapconsortium/entity-python-sdk/commit/66feb681cef600bec42b47aa66b6753edddb7907))
+
 ## 2.0.0-alpha.16 (2025-06-03)
 
 Full Changelog: [v2.0.0-alpha.15...v2.0.0-alpha.16](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.15...v2.0.0-alpha.16)
