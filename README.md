@@ -1,6 +1,6 @@
 # HuBMAP Entity SDK Python API Library
 
-[![PyPI version](https://img.shields.io/pypi/v/hubmap_entity_sdk.svg)](https://pypi.org/project/hubmap_entity_sdk/)
+[![PyPI version](<https://img.shields.io/pypi/v/hubmap_entity_sdk.svg?label=pypi%20(stable)>)](https://pypi.org/project/hubmap_entity_sdk/)
 
 The HuBMAP Entity SDK Python library provides convenient access to the [HuBMAP Entity REST API](https://github.com/hubmapconsortium/entity-api) from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,
@@ -88,6 +88,41 @@ asyncio.run(main())
 
 Functionality between the synchronous and asynchronous clients is otherwise identical.
 
+### With aiohttp
+
+By default, the async client uses `httpx` for HTTP requests. However, for improved concurrency performance you may also use `aiohttp` as the HTTP backend.
+
+You can enable this by installing `aiohttp`:
+
+```sh
+# install from PyPI
+pip install --pre hubmap_entity_sdk[aiohttp]
+```
+
+Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
+
+```python
+import os
+import asyncio
+from hubmap_entity_sdk import DefaultAioHttpClient
+from hubmap_entity_sdk import AsyncHubmapEntitySDK
+
+
+async def main() -> None:
+    async with AsyncHubmapEntitySDK(
+        bearer_token=os.environ.get(
+            "HUBMAP_ENTITY_SDK_BEARER_TOKEN"
+        ),  # This is the default and can be omitted
+        http_client=DefaultAioHttpClient(),
+    ) as client:
+        entity = await client.entities.retrieve(
+            "hubmap_id or uuid",
+        )
+
+
+asyncio.run(main())
+```
+
 ## Using types
 
 Nested request parameters are [TypedDicts](https://docs.python.org/3/library/typing.html#typing.TypedDict). Responses are [Pydantic models](https://docs.pydantic.dev) which also provide helper methods for things like:
@@ -168,7 +203,7 @@ client.with_options(max_retries=5).entities.retrieve(
 ### Timeouts
 
 By default requests time out after 29 seconds. You can configure this with a `timeout` option,
-which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
+which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/timeouts/#fine-tuning-the-configuration) object:
 
 ```python
 from hubmap_entity_sdk import HubmapEntitySDK
