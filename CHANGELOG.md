@@ -1,5 +1,34 @@
 # Changelog
 
+## 2.0.0-alpha.17 (2025-06-24)
+
+Full Changelog: [v2.0.0-alpha.16...v2.0.0-alpha.17](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.16...v2.0.0-alpha.17)
+
+### Features
+
+* **client:** add support for aiohttp ([d016ad9](https://github.com/hubmapconsortium/entity-python-sdk/commit/d016ad93c39c30c6be80315f8eb1d22625e9403a))
+
+
+### Bug Fixes
+
+* **client:** correctly parse binary response | stream ([42caccd](https://github.com/hubmapconsortium/entity-python-sdk/commit/42caccd28b1b9976a19ee896f7062a757c5111de))
+* **tests:** fix: tests which call HTTP endpoints directly with the example parameters ([e95d9d4](https://github.com/hubmapconsortium/entity-python-sdk/commit/e95d9d4d83dfd03731a2f1c190f34fb675018c73))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([1cfe2c3](https://github.com/hubmapconsortium/entity-python-sdk/commit/1cfe2c3c65b6829524d0664aabc889b7871a3f1e))
+* **internal:** update conftest.py ([f0f799d](https://github.com/hubmapconsortium/entity-python-sdk/commit/f0f799d8e81879450303965ee81efc9c9938898a))
+* **readme:** update badges ([e76a8da](https://github.com/hubmapconsortium/entity-python-sdk/commit/e76a8dae5693141236e1d9b160019aa4c94a1ff5))
+* **tests:** add tests for httpx client instantiation & proxies ([4f95579](https://github.com/hubmapconsortium/entity-python-sdk/commit/4f95579b6059dcb0a637396fff4a105ff5e58d34))
+* **tests:** run tests in parallel ([66feb68](https://github.com/hubmapconsortium/entity-python-sdk/commit/66feb681cef600bec42b47aa66b6753edddb7907))
+* **tests:** skip some failing tests on the latest python versions ([ebc7530](https://github.com/hubmapconsortium/entity-python-sdk/commit/ebc7530d2e036ecd9f1ed023315e6b2a666cc32c))
+
+
+### Documentation
+
+* **client:** fix httpx.Timeout documentation reference ([a451cee](https://github.com/hubmapconsortium/entity-python-sdk/commit/a451cee4fe25ad097d0ac76ed57ccc5cc1742c28))
+
 ## 2.0.0-alpha.16 (2025-06-03)
 
 Full Changelog: [v2.0.0-alpha.15...v2.0.0-alpha.16](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.15...v2.0.0-alpha.16)
