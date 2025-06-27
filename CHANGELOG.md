@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.18 (2025-06-27)
+
+Full Changelog: [v2.0.0-alpha.17...v2.0.0-alpha.18](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.17...v2.0.0-alpha.18)
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([8b450f8](https://github.com/hubmapconsortium/entity-python-sdk/commit/8b450f8c1f54d8d5983cf7964f090e7a5800ffbc))
+
 ## 2.0.0-alpha.17 (2025-06-24)
 
 Full Changelog: [v2.0.0-alpha.16...v2.0.0-alpha.17](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.16...v2.0.0-alpha.17)
