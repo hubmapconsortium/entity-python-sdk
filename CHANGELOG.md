@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0-alpha.19 (2025-06-30)
+
+Full Changelog: [v2.0.0-alpha.18...v2.0.0-alpha.19](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.18...v2.0.0-alpha.19)
+
+### Bug Fixes
+
+* **ci:** correct conditional ([c689b9b](https://github.com/hubmapconsortium/entity-python-sdk/commit/c689b9b91b0de2a6755b7fddf6c81a72f7a412a5))
+
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([7ab21f2](https://github.com/hubmapconsortium/entity-python-sdk/commit/7ab21f2495845bda8440d4dfa1006caf398db141))
+
 ## 2.0.0-alpha.18 (2025-06-27)
 
 Full Changelog: [v2.0.0-alpha.17...v2.0.0-alpha.18](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.17...v2.0.0-alpha.18)
