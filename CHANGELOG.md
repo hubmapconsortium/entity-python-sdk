@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.20 (2025-07-02)
+
+Full Changelog: [v2.0.0-alpha.19...v2.0.0-alpha.20](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.19...v2.0.0-alpha.20)
+
+### Chores
+
+* **ci:** change upload type ([1829907](https://github.com/hubmapconsortium/entity-python-sdk/commit/18299079f35564240aa4f60cda150498f22c3b21))
+
 ## 2.0.0-alpha.19 (2025-06-30)
 
 Full Changelog: [v2.0.0-alpha.18...v2.0.0-alpha.19](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.18...v2.0.0-alpha.19)
