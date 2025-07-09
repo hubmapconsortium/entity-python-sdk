@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.0-alpha.22 (2025-07-09)
+
+Full Changelog: [v2.0.0-alpha.21...v2.0.0-alpha.22](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.21...v2.0.0-alpha.22)
+
+### Chores
+
+* **internal:** bump pinned h11 dep ([f57e34c](https://github.com/hubmapconsortium/entity-python-sdk/commit/f57e34c7c6e698c9f8d3a24d35e7ad697a5a6004))
+* **package:** mark python 3.13 as supported ([793b96e](https://github.com/hubmapconsortium/entity-python-sdk/commit/793b96e54f31c8e7d17294aced7f790564f18d7c))
+
 ## 2.0.0-alpha.21 (2025-07-08)
 
 Full Changelog: [v2.0.0-alpha.20...v2.0.0-alpha.21](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.20...v2.0.0-alpha.21)
