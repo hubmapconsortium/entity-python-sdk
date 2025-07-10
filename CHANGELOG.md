@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.23 (2025-07-10)
+
+Full Changelog: [v2.0.0-alpha.22...v2.0.0-alpha.23](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.22...v2.0.0-alpha.23)
+
+### Bug Fixes
+
+* **parsing:** correctly handle nested discriminated unions ([41a0acb](https://github.com/hubmapconsortium/entity-python-sdk/commit/41a0acbdc6bf25e32a25e674fd06981090291a48))
+
 ## 2.0.0-alpha.22 (2025-07-09)
 
 Full Changelog: [v2.0.0-alpha.21...v2.0.0-alpha.22](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.21...v2.0.0-alpha.22)
