@@ -1,6 +1,7 @@
 # HuBMAP Entity SDK Python API Library
 
-[![PyPI version](<https://img.shields.io/pypi/v/hubmap_entity_sdk.svg?label=pypi%20(stable)>)](https://pypi.org/project/hubmap_entity_sdk/)
+<!-- prettier-ignore -->
+[![PyPI version](https://img.shields.io/pypi/v/hubmap_entity_sdk.svg?label=pypi%20(stable))](https://pypi.org/project/hubmap_entity_sdk/)
 
 The HuBMAP Entity SDK Python library provides convenient access to the [HuBMAP Entity REST API](https://github.com/hubmapconsortium/entity-api) from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,
