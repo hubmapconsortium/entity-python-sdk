@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.24 (2025-07-11)
+
+Full Changelog: [v2.0.0-alpha.23...v2.0.0-alpha.24](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.23...v2.0.0-alpha.24)
+
+### Chores
+
+* **readme:** fix version rendering on pypi ([9781f0d](https://github.com/hubmapconsortium/entity-python-sdk/commit/9781f0d7f8deab48c3650102ed39b3237c4a1ceb))
+
 ## 2.0.0-alpha.23 (2025-07-10)
 
 Full Changelog: [v2.0.0-alpha.22...v2.0.0-alpha.23](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.22...v2.0.0-alpha.23)
