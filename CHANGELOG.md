@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.25 (2025-07-12)
+
+Full Changelog: [v2.0.0-alpha.24...v2.0.0-alpha.25](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.24...v2.0.0-alpha.25)
+
+### Bug Fixes
+
+* **client:** don't send Content-Type header on GET requests ([ce3cb44](https://github.com/hubmapconsortium/entity-python-sdk/commit/ce3cb447934752fc5020b85b01362c8ee5fe6bb5))
+
 ## 2.0.0-alpha.24 (2025-07-11)
 
 Full Changelog: [v2.0.0-alpha.23...v2.0.0-alpha.24](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.23...v2.0.0-alpha.24)
