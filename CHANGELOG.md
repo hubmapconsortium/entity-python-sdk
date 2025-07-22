@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.27 (2025-07-22)
+
+Full Changelog: [v2.0.0-alpha.26...v2.0.0-alpha.27](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.26...v2.0.0-alpha.27)
+
+### Bug Fixes
+
+* **parsing:** ignore empty metadata ([56ce6cb](https://github.com/hubmapconsortium/entity-python-sdk/commit/56ce6cbffdf9de0daf25923f9dc4e8ea113775f0))
+
 ## 2.0.0-alpha.26 (2025-07-15)
 
 Full Changelog: [v2.0.0-alpha.25...v2.0.0-alpha.26](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.25...v2.0.0-alpha.26)
