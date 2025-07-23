@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.28 (2025-07-23)
+
+Full Changelog: [v2.0.0-alpha.27...v2.0.0-alpha.28](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.27...v2.0.0-alpha.28)
+
+### Bug Fixes
+
+* **parsing:** parse extra field types ([e4c5b65](https://github.com/hubmapconsortium/entity-python-sdk/commit/e4c5b654986523623541b86bf0188b281bd8713c))
+
 ## 2.0.0-alpha.27 (2025-07-22)
 
 Full Changelog: [v2.0.0-alpha.26...v2.0.0-alpha.27](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.26...v2.0.0-alpha.27)
