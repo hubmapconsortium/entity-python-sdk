@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.29 (2025-07-25)
+
+Full Changelog: [v2.0.0-alpha.28...v2.0.0-alpha.29](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.28...v2.0.0-alpha.29)
+
+### Chores
+
+* **project:** add settings file for vscode ([6a82bf7](https://github.com/hubmapconsortium/entity-python-sdk/commit/6a82bf703d52640757a721f52698cc44ea3194f2))
+
 ## 2.0.0-alpha.28 (2025-07-23)
 
 Full Changelog: [v2.0.0-alpha.27...v2.0.0-alpha.28](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.27...v2.0.0-alpha.28)
