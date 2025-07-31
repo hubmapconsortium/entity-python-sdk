@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.30 (2025-07-31)
+
+Full Changelog: [v2.0.0-alpha.29...v2.0.0-alpha.30](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.29...v2.0.0-alpha.30)
+
+### Features
+
+* **client:** support file upload requests ([d8862f5](https://github.com/hubmapconsortium/entity-python-sdk/commit/d8862f5bd0969e5169550b735a57cde703b30c47))
+
 ## 2.0.0-alpha.29 (2025-07-25)
 
 Full Changelog: [v2.0.0-alpha.28...v2.0.0-alpha.29](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.28...v2.0.0-alpha.29)
