@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.31 (2025-08-07)
+
+Full Changelog: [v2.0.0-alpha.30...v2.0.0-alpha.31](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.30...v2.0.0-alpha.31)
+
+### Chores
+
+* **internal:** fix ruff target version ([ff86a26](https://github.com/hubmapconsortium/entity-python-sdk/commit/ff86a26dcf5000e2d8b66f588df1a008809e7ee7))
+
 ## 2.0.0-alpha.30 (2025-07-31)
 
 Full Changelog: [v2.0.0-alpha.29...v2.0.0-alpha.30](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.29...v2.0.0-alpha.30)
