@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.0-alpha.32 (2025-08-09)
+
+Full Changelog: [v2.0.0-alpha.31...v2.0.0-alpha.32](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.31...v2.0.0-alpha.32)
+
+### Chores
+
+* **internal:** update comment in script ([b31a1fd](https://github.com/hubmapconsortium/entity-python-sdk/commit/b31a1fd019c7c37d0e667ff2ded426034ef1ed3f))
+* update @stainless-api/prism-cli to v5.15.0 ([d259838](https://github.com/hubmapconsortium/entity-python-sdk/commit/d259838a528760b836d153045660afecab13396e))
+
 ## 2.0.0-alpha.31 (2025-08-07)
 
 Full Changelog: [v2.0.0-alpha.30...v2.0.0-alpha.31](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.30...v2.0.0-alpha.31)
