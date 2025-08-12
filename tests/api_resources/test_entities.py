@@ -24,7 +24,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestEntities:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_retrieve(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.retrieve(
@@ -32,7 +32,7 @@ class TestEntities:
         )
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_retrieve(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.retrieve(
@@ -44,7 +44,7 @@ class TestEntities:
         entity = response.parse()
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_retrieve(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.retrieve(
@@ -58,7 +58,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_retrieve(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -66,7 +66,7 @@ class TestEntities:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_update(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.update(
@@ -74,7 +74,7 @@ class TestEntities:
         )
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_update_with_all_params(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.update(
@@ -83,7 +83,7 @@ class TestEntities:
         )
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_update(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.update(
@@ -95,7 +95,7 @@ class TestEntities:
         entity = response.parse()
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_update(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.update(
@@ -109,7 +109,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_update(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -117,7 +117,7 @@ class TestEntities:
                 id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_create_multiple_samples(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.create_multiple_samples(
@@ -125,7 +125,7 @@ class TestEntities:
         )
         assert_matches_type(EntityCreateMultipleSamplesResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_create_multiple_samples(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.create_multiple_samples(
@@ -137,7 +137,7 @@ class TestEntities:
         entity = response.parse()
         assert_matches_type(EntityCreateMultipleSamplesResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_create_multiple_samples(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.create_multiple_samples(
@@ -151,7 +151,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_create_multiple_samples(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `count` but received ''"):
@@ -159,7 +159,7 @@ class TestEntities:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_flush_cache(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.flush_cache(
@@ -167,7 +167,7 @@ class TestEntities:
         )
         assert entity is None
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_flush_cache(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.flush_cache(
@@ -179,7 +179,7 @@ class TestEntities:
         entity = response.parse()
         assert entity is None
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_flush_cache(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.flush_cache(
@@ -193,7 +193,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_flush_cache(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -201,7 +201,7 @@ class TestEntities:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_is_instance_of(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.is_instance_of(
@@ -210,7 +210,7 @@ class TestEntities:
         )
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_is_instance_of(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.is_instance_of(
@@ -223,7 +223,7 @@ class TestEntities:
         entity = response.parse()
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_is_instance_of(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.is_instance_of(
@@ -238,7 +238,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_is_instance_of(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -253,7 +253,7 @@ class TestEntities:
                 id="id",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_list_ancestor_organs(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.list_ancestor_organs(
@@ -261,7 +261,7 @@ class TestEntities:
         )
         assert_matches_type(EntityListAncestorOrgansResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_list_ancestor_organs(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.list_ancestor_organs(
@@ -273,7 +273,7 @@ class TestEntities:
         entity = response.parse()
         assert_matches_type(EntityListAncestorOrgansResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_list_ancestor_organs(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.list_ancestor_organs(
@@ -287,7 +287,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_list_ancestor_organs(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -295,7 +295,7 @@ class TestEntities:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_list_collections(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.list_collections(
@@ -303,7 +303,7 @@ class TestEntities:
         )
         assert_matches_type(EntityListCollectionsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_list_collections_with_all_params(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.list_collections(
@@ -312,7 +312,7 @@ class TestEntities:
         )
         assert_matches_type(EntityListCollectionsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_list_collections(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.list_collections(
@@ -324,7 +324,7 @@ class TestEntities:
         entity = response.parse()
         assert_matches_type(EntityListCollectionsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_list_collections(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.list_collections(
@@ -338,7 +338,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_list_collections(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -346,7 +346,7 @@ class TestEntities:
                 id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_list_siblings(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.list_siblings(
@@ -354,7 +354,7 @@ class TestEntities:
         )
         assert_matches_type(EntityListSiblingsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_list_siblings_with_all_params(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.list_siblings(
@@ -365,7 +365,7 @@ class TestEntities:
         )
         assert_matches_type(EntityListSiblingsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_list_siblings(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.list_siblings(
@@ -377,7 +377,7 @@ class TestEntities:
         entity = response.parse()
         assert_matches_type(EntityListSiblingsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_list_siblings(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.list_siblings(
@@ -391,7 +391,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_list_siblings(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -399,7 +399,7 @@ class TestEntities:
                 id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_list_tuplets(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.list_tuplets(
@@ -407,7 +407,7 @@ class TestEntities:
         )
         assert_matches_type(EntityListTupletsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_list_tuplets_with_all_params(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.list_tuplets(
@@ -417,7 +417,7 @@ class TestEntities:
         )
         assert_matches_type(EntityListTupletsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_list_tuplets(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.list_tuplets(
@@ -429,7 +429,7 @@ class TestEntities:
         entity = response.parse()
         assert_matches_type(EntityListTupletsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_list_tuplets(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.list_tuplets(
@@ -443,7 +443,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_list_tuplets(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -451,7 +451,7 @@ class TestEntities:
                 id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_list_uploads(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.list_uploads(
@@ -459,7 +459,7 @@ class TestEntities:
         )
         assert_matches_type(EntityListUploadsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_list_uploads_with_all_params(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.list_uploads(
@@ -468,7 +468,7 @@ class TestEntities:
         )
         assert_matches_type(EntityListUploadsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_list_uploads(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.list_uploads(
@@ -480,7 +480,7 @@ class TestEntities:
         entity = response.parse()
         assert_matches_type(EntityListUploadsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_list_uploads(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.list_uploads(
@@ -494,7 +494,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_list_uploads(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -502,7 +502,7 @@ class TestEntities:
                 id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_retrieve_globus_url(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.retrieve_globus_url(
@@ -510,7 +510,7 @@ class TestEntities:
         )
         assert_matches_type(str, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_retrieve_globus_url(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.retrieve_globus_url(
@@ -522,7 +522,7 @@ class TestEntities:
         entity = response.parse()
         assert_matches_type(str, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_retrieve_globus_url(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.retrieve_globus_url(
@@ -536,7 +536,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_retrieve_globus_url(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -544,7 +544,7 @@ class TestEntities:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_retrieve_provenance(self, client: HubmapEntitySDK) -> None:
         entity = client.entities.retrieve_provenance(
@@ -552,7 +552,7 @@ class TestEntities:
         )
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_retrieve_provenance(self, client: HubmapEntitySDK) -> None:
         response = client.entities.with_raw_response.retrieve_provenance(
@@ -564,7 +564,7 @@ class TestEntities:
         entity = response.parse()
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_retrieve_provenance(self, client: HubmapEntitySDK) -> None:
         with client.entities.with_streaming_response.retrieve_provenance(
@@ -578,7 +578,7 @@ class TestEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_retrieve_provenance(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -592,7 +592,7 @@ class TestAsyncEntities:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_retrieve(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.retrieve(
@@ -600,7 +600,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.retrieve(
@@ -612,7 +612,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.retrieve(
@@ -626,7 +626,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_retrieve(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -634,7 +634,7 @@ class TestAsyncEntities:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_update(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.update(
@@ -642,7 +642,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_update_with_all_params(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.update(
@@ -651,7 +651,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_update(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.update(
@@ -663,7 +663,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_update(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.update(
@@ -677,7 +677,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_update(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -685,7 +685,7 @@ class TestAsyncEntities:
                 id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_create_multiple_samples(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.create_multiple_samples(
@@ -693,7 +693,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(EntityCreateMultipleSamplesResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_create_multiple_samples(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.create_multiple_samples(
@@ -705,7 +705,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert_matches_type(EntityCreateMultipleSamplesResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_create_multiple_samples(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.create_multiple_samples(
@@ -719,7 +719,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_create_multiple_samples(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `count` but received ''"):
@@ -727,7 +727,7 @@ class TestAsyncEntities:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_flush_cache(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.flush_cache(
@@ -735,7 +735,7 @@ class TestAsyncEntities:
         )
         assert entity is None
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_flush_cache(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.flush_cache(
@@ -747,7 +747,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert entity is None
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_flush_cache(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.flush_cache(
@@ -761,7 +761,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_flush_cache(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -769,7 +769,7 @@ class TestAsyncEntities:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_is_instance_of(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.is_instance_of(
@@ -778,7 +778,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_is_instance_of(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.is_instance_of(
@@ -791,7 +791,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_is_instance_of(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.is_instance_of(
@@ -806,7 +806,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_is_instance_of(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -821,7 +821,7 @@ class TestAsyncEntities:
                 id="id",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_list_ancestor_organs(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.list_ancestor_organs(
@@ -829,7 +829,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(EntityListAncestorOrgansResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_list_ancestor_organs(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.list_ancestor_organs(
@@ -841,7 +841,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert_matches_type(EntityListAncestorOrgansResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_list_ancestor_organs(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.list_ancestor_organs(
@@ -855,7 +855,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_list_ancestor_organs(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -863,7 +863,7 @@ class TestAsyncEntities:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_list_collections(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.list_collections(
@@ -871,7 +871,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(EntityListCollectionsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_list_collections_with_all_params(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.list_collections(
@@ -880,7 +880,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(EntityListCollectionsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_list_collections(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.list_collections(
@@ -892,7 +892,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert_matches_type(EntityListCollectionsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_list_collections(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.list_collections(
@@ -906,7 +906,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_list_collections(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -914,7 +914,7 @@ class TestAsyncEntities:
                 id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_list_siblings(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.list_siblings(
@@ -922,7 +922,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(EntityListSiblingsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_list_siblings_with_all_params(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.list_siblings(
@@ -933,7 +933,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(EntityListSiblingsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_list_siblings(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.list_siblings(
@@ -945,7 +945,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert_matches_type(EntityListSiblingsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_list_siblings(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.list_siblings(
@@ -959,7 +959,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_list_siblings(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -967,7 +967,7 @@ class TestAsyncEntities:
                 id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_list_tuplets(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.list_tuplets(
@@ -975,7 +975,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(EntityListTupletsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_list_tuplets_with_all_params(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.list_tuplets(
@@ -985,7 +985,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(EntityListTupletsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_list_tuplets(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.list_tuplets(
@@ -997,7 +997,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert_matches_type(EntityListTupletsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_list_tuplets(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.list_tuplets(
@@ -1011,7 +1011,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_list_tuplets(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1019,7 +1019,7 @@ class TestAsyncEntities:
                 id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_list_uploads(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.list_uploads(
@@ -1027,7 +1027,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(EntityListUploadsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_list_uploads_with_all_params(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.list_uploads(
@@ -1036,7 +1036,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(EntityListUploadsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_list_uploads(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.list_uploads(
@@ -1048,7 +1048,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert_matches_type(EntityListUploadsResponse, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_list_uploads(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.list_uploads(
@@ -1062,7 +1062,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_list_uploads(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1070,7 +1070,7 @@ class TestAsyncEntities:
                 id="",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_retrieve_globus_url(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.retrieve_globus_url(
@@ -1078,7 +1078,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(str, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_retrieve_globus_url(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.retrieve_globus_url(
@@ -1090,7 +1090,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert_matches_type(str, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve_globus_url(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.retrieve_globus_url(
@@ -1104,7 +1104,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_retrieve_globus_url(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -1112,7 +1112,7 @@ class TestAsyncEntities:
                 "",
             )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_retrieve_provenance(self, async_client: AsyncHubmapEntitySDK) -> None:
         entity = await async_client.entities.retrieve_provenance(
@@ -1120,7 +1120,7 @@ class TestAsyncEntities:
         )
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_retrieve_provenance(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.with_raw_response.retrieve_provenance(
@@ -1132,7 +1132,7 @@ class TestAsyncEntities:
         entity = await response.parse()
         assert_matches_type(object, entity, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve_provenance(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.with_streaming_response.retrieve_provenance(
@@ -1146,7 +1146,7 @@ class TestAsyncEntities:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_retrieve_provenance(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
