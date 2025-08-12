@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.33 (2025-08-12)
+
+Full Changelog: [v2.0.0-alpha.32...v2.0.0-alpha.33](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.32...v2.0.0-alpha.33)
+
+### Chores
+
+* **internal:** codegen related update ([74b34fa](https://github.com/hubmapconsortium/entity-python-sdk/commit/74b34fa9712e9d8f2f353a7d0eb256fe22115e0b))
+
 ## 2.0.0-alpha.32 (2025-08-09)
 
 Full Changelog: [v2.0.0-alpha.31...v2.0.0-alpha.32](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.31...v2.0.0-alpha.32)
