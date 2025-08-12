@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestUploads:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_update_bulk(self, client: HubmapEntitySDK) -> None:
         upload = client.uploads.update_bulk(
@@ -25,7 +25,7 @@ class TestUploads:
         )
         assert_matches_type(UploadUpdateBulkResponse, upload, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_update_bulk(self, client: HubmapEntitySDK) -> None:
         response = client.uploads.with_raw_response.update_bulk(
@@ -37,7 +37,7 @@ class TestUploads:
         upload = response.parse()
         assert_matches_type(UploadUpdateBulkResponse, upload, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_update_bulk(self, client: HubmapEntitySDK) -> None:
         with client.uploads.with_streaming_response.update_bulk(
@@ -57,7 +57,7 @@ class TestAsyncUploads:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_update_bulk(self, async_client: AsyncHubmapEntitySDK) -> None:
         upload = await async_client.uploads.update_bulk(
@@ -65,7 +65,7 @@ class TestAsyncUploads:
         )
         assert_matches_type(UploadUpdateBulkResponse, upload, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_update_bulk(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.uploads.with_raw_response.update_bulk(
@@ -77,7 +77,7 @@ class TestAsyncUploads:
         upload = await response.parse()
         assert_matches_type(UploadUpdateBulkResponse, upload, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_update_bulk(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.uploads.with_streaming_response.update_bulk(

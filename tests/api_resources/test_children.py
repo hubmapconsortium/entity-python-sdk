@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestChildren:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_retrieve(self, client: HubmapEntitySDK) -> None:
         child = client.children.retrieve(
@@ -25,7 +25,7 @@ class TestChildren:
         )
         assert_matches_type(ChildRetrieveResponse, child, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_retrieve(self, client: HubmapEntitySDK) -> None:
         response = client.children.with_raw_response.retrieve(
@@ -37,7 +37,7 @@ class TestChildren:
         child = response.parse()
         assert_matches_type(ChildRetrieveResponse, child, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_retrieve(self, client: HubmapEntitySDK) -> None:
         with client.children.with_streaming_response.retrieve(
@@ -51,7 +51,7 @@ class TestChildren:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_retrieve(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):
@@ -65,7 +65,7 @@ class TestAsyncChildren:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_retrieve(self, async_client: AsyncHubmapEntitySDK) -> None:
         child = await async_client.children.retrieve(
@@ -73,7 +73,7 @@ class TestAsyncChildren:
         )
         assert_matches_type(ChildRetrieveResponse, child, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_retrieve(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.children.with_raw_response.retrieve(
@@ -85,7 +85,7 @@ class TestAsyncChildren:
         child = await response.parse()
         assert_matches_type(ChildRetrieveResponse, child, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_retrieve(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.children.with_streaming_response.retrieve(
@@ -99,7 +99,7 @@ class TestAsyncChildren:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_retrieve(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `id` but received ''"):

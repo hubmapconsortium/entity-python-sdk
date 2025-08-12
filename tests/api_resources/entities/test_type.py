@@ -16,7 +16,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestType:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_is_instance_of(self, client: HubmapEntitySDK) -> None:
         type = client.entities.type.is_instance_of(
@@ -25,7 +25,7 @@ class TestType:
         )
         assert_matches_type(object, type, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_is_instance_of(self, client: HubmapEntitySDK) -> None:
         response = client.entities.type.with_raw_response.is_instance_of(
@@ -38,7 +38,7 @@ class TestType:
         type = response.parse()
         assert_matches_type(object, type, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_is_instance_of(self, client: HubmapEntitySDK) -> None:
         with client.entities.type.with_streaming_response.is_instance_of(
@@ -53,7 +53,7 @@ class TestType:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_path_params_is_instance_of(self, client: HubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `type_a` but received ''"):
@@ -74,7 +74,7 @@ class TestAsyncType:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_is_instance_of(self, async_client: AsyncHubmapEntitySDK) -> None:
         type = await async_client.entities.type.is_instance_of(
@@ -83,7 +83,7 @@ class TestAsyncType:
         )
         assert_matches_type(object, type, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_is_instance_of(self, async_client: AsyncHubmapEntitySDK) -> None:
         response = await async_client.entities.type.with_raw_response.is_instance_of(
@@ -96,7 +96,7 @@ class TestAsyncType:
         type = await response.parse()
         assert_matches_type(object, type, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_is_instance_of(self, async_client: AsyncHubmapEntitySDK) -> None:
         async with async_client.entities.type.with_streaming_response.is_instance_of(
@@ -111,7 +111,7 @@ class TestAsyncType:
 
         assert cast(Any, response.is_closed) is True
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_path_params_is_instance_of(self, async_client: AsyncHubmapEntitySDK) -> None:
         with pytest.raises(ValueError, match=r"Expected a non-empty value for `type_a` but received ''"):
