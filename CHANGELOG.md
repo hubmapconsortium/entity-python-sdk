@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.35 (2025-08-26)
+
+Full Changelog: [v2.0.0-alpha.34...v2.0.0-alpha.35](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.34...v2.0.0-alpha.35)
+
+### Chores
+
+* **internal:** change ci workflow machines ([a8a1c70](https://github.com/hubmapconsortium/entity-python-sdk/commit/a8a1c70d5e5f108497ee876abf667a7ebc6121a0))
+
 ## 2.0.0-alpha.34 (2025-08-22)
 
 Full Changelog: [v2.0.0-alpha.33...v2.0.0-alpha.34](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.33...v2.0.0-alpha.34)
