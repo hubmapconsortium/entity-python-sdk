@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0-alpha.36 (2025-08-27)
+
+Full Changelog: [v2.0.0-alpha.35...v2.0.0-alpha.36](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.35...v2.0.0-alpha.36)
+
+### Bug Fixes
+
+* avoid newer type syntax ([97d9460](https://github.com/hubmapconsortium/entity-python-sdk/commit/97d94601440000449dc51ce88738b9d32e210f4e))
+
+
+### Chores
+
+* **internal:** update pyright exclude list ([ef980ed](https://github.com/hubmapconsortium/entity-python-sdk/commit/ef980ed8af6868e661a0ea88865120472d1a1935))
+
 ## 2.0.0-alpha.35 (2025-08-26)
 
 Full Changelog: [v2.0.0-alpha.34...v2.0.0-alpha.35](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.34...v2.0.0-alpha.35)
