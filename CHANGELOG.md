@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.37 (2025-08-30)
+
+Full Changelog: [v2.0.0-alpha.36...v2.0.0-alpha.37](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.36...v2.0.0-alpha.37)
+
+### Chores
+
+* **internal:** add Sequence related utils ([8953d31](https://github.com/hubmapconsortium/entity-python-sdk/commit/8953d3124ce06251710594fbb36fb151dfeb076b))
+
 ## 2.0.0-alpha.36 (2025-08-27)
 
 Full Changelog: [v2.0.0-alpha.35...v2.0.0-alpha.36](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.35...v2.0.0-alpha.36)
