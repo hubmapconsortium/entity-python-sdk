@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.38 (2025-09-03)
+
+Full Changelog: [v2.0.0-alpha.37...v2.0.0-alpha.38](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.37...v2.0.0-alpha.38)
+
+### Features
+
+* **types:** replace List[str] with SequenceNotStr in params ([7cd58f8](https://github.com/hubmapconsortium/entity-python-sdk/commit/7cd58f88a24aef5393328f2a3fabe4be72a4ab54))
+
 ## 2.0.0-alpha.37 (2025-08-30)
 
 Full Changelog: [v2.0.0-alpha.36...v2.0.0-alpha.37](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.36...v2.0.0-alpha.37)
