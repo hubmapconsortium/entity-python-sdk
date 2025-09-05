@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0-alpha.39 (2025-09-05)
+
+Full Changelog: [v2.0.0-alpha.38...v2.0.0-alpha.39](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.38...v2.0.0-alpha.39)
+
+### Features
+
+* improve future compat with pydantic v3 ([1e944a7](https://github.com/hubmapconsortium/entity-python-sdk/commit/1e944a7679385a6b40b7b2fff20ba08af8bbe689))
+
+
+### Chores
+
+* **internal:** move mypy configurations to `pyproject.toml` file ([e47d99a](https://github.com/hubmapconsortium/entity-python-sdk/commit/e47d99a0efb822e733541dabad9499461dac2a7e))
+
 ## 2.0.0-alpha.38 (2025-09-03)
 
 Full Changelog: [v2.0.0-alpha.37...v2.0.0-alpha.38](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.37...v2.0.0-alpha.38)
