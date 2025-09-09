@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.40 (2025-09-06)
+
+Full Changelog: [v2.0.0-alpha.39...v2.0.0-alpha.40](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.39...v2.0.0-alpha.40)
+
+### Chores
+
+* **tests:** simplify `get_platform` test ([7ed6bcb](https://github.com/hubmapconsortium/entity-python-sdk/commit/7ed6bcb520fbda42c962706e7673b858eb74d337))
+
 ## 2.0.0-alpha.39 (2025-09-05)
 
 Full Changelog: [v2.0.0-alpha.38...v2.0.0-alpha.39](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.38...v2.0.0-alpha.39)
