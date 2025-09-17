@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.41 (2025-09-17)
+
+Full Changelog: [v2.0.0-alpha.40...v2.0.0-alpha.41](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.40...v2.0.0-alpha.41)
+
+### Chores
+
+* **internal:** update pydantic dependency ([5eea17f](https://github.com/hubmapconsortium/entity-python-sdk/commit/5eea17f6eb84019e1bd235bc3751bd0b2b2ddbc1))
+
 ## 2.0.0-alpha.40 (2025-09-06)
 
 Full Changelog: [v2.0.0-alpha.39...v2.0.0-alpha.40](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.39...v2.0.0-alpha.40)
