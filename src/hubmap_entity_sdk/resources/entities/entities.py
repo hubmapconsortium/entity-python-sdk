@@ -21,7 +21,7 @@ from ...types import (
     entity_list_siblings_params,
     entity_list_collections_params,
 )
-from ..._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
+from ..._types import Body, Omit, Query, Headers, NoneType, NotGiven, omit, not_given
 from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -75,7 +75,7 @@ class EntitiesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """Retrieve a provenance entity by id.
 
@@ -104,13 +104,13 @@ class EntitiesResource(SyncAPIResource):
         self,
         id: str,
         *,
-        body: object | NotGiven = NOT_GIVEN,
+        body: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """
         Update the properties of a given Donor, Sample, Dataset or Upload
@@ -144,7 +144,7 @@ class EntitiesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityCreateMultipleSamplesResponse:
         """Create multiple samples from the same source entity.
 
@@ -179,7 +179,7 @@ class EntitiesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Delete the cached data from Memcached for a given entity, HuBMAP-Read access is
@@ -215,7 +215,7 @@ class EntitiesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """
         Determines if the Entity with id is an instance of type
@@ -250,7 +250,7 @@ class EntitiesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityListAncestorOrgansResponse:
         """
         Retrievea list of ancestor organ(s) of a given uuid
@@ -278,13 +278,13 @@ class EntitiesResource(SyncAPIResource):
         self,
         id: str,
         *,
-        property: Literal["uuid"] | NotGiven = NOT_GIVEN,
+        property: Literal["uuid"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityListCollectionsResponse:
         """
         Get the list of all collections the Entity belongs to.
@@ -322,15 +322,15 @@ class EntitiesResource(SyncAPIResource):
         self,
         id: str,
         *,
-        include_old_revisions: Literal["true", "false"] | NotGiven = NOT_GIVEN,
-        property_key: Literal["uuid"] | NotGiven = NOT_GIVEN,
-        status: Literal["New", "QA", "Published"] | NotGiven = NOT_GIVEN,
+        include_old_revisions: Literal["true", "false"] | Omit = omit,
+        property_key: Literal["uuid"] | Omit = omit,
+        status: Literal["New", "QA", "Published"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityListSiblingsResponse:
         """Get the siblings list for an Entity.
 
@@ -384,14 +384,14 @@ class EntitiesResource(SyncAPIResource):
         self,
         id: str,
         *,
-        property_key: Literal["uuid"] | NotGiven = NOT_GIVEN,
-        status: Literal["New", "QA", "Published"] | NotGiven = NOT_GIVEN,
+        property_key: Literal["uuid"] | Omit = omit,
+        status: Literal["New", "QA", "Published"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityListTupletsResponse:
         """Get the tuplets list for an Entity.
 
@@ -439,13 +439,13 @@ class EntitiesResource(SyncAPIResource):
         self,
         id: str,
         *,
-        property: Literal["uuid"] | NotGiven = NOT_GIVEN,
+        property: Literal["uuid"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityListUploadsResponse:
         """
         Get the list of all uploads the Entity belongs to.
@@ -486,7 +486,7 @@ class EntitiesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> str:
         """
         Get the Globus URL to the given Dataset or Upload entity
@@ -520,7 +520,7 @@ class EntitiesResource(SyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """Get Provenance Data for Entity.
 
@@ -582,7 +582,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """Retrieve a provenance entity by id.
 
@@ -611,13 +611,13 @@ class AsyncEntitiesResource(AsyncAPIResource):
         self,
         id: str,
         *,
-        body: object | NotGiven = NOT_GIVEN,
+        body: object | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """
         Update the properties of a given Donor, Sample, Dataset or Upload
@@ -651,7 +651,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityCreateMultipleSamplesResponse:
         """Create multiple samples from the same source entity.
 
@@ -686,7 +686,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> None:
         """
         Delete the cached data from Memcached for a given entity, HuBMAP-Read access is
@@ -722,7 +722,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """
         Determines if the Entity with id is an instance of type
@@ -757,7 +757,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityListAncestorOrgansResponse:
         """
         Retrievea list of ancestor organ(s) of a given uuid
@@ -785,13 +785,13 @@ class AsyncEntitiesResource(AsyncAPIResource):
         self,
         id: str,
         *,
-        property: Literal["uuid"] | NotGiven = NOT_GIVEN,
+        property: Literal["uuid"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityListCollectionsResponse:
         """
         Get the list of all collections the Entity belongs to.
@@ -829,15 +829,15 @@ class AsyncEntitiesResource(AsyncAPIResource):
         self,
         id: str,
         *,
-        include_old_revisions: Literal["true", "false"] | NotGiven = NOT_GIVEN,
-        property_key: Literal["uuid"] | NotGiven = NOT_GIVEN,
-        status: Literal["New", "QA", "Published"] | NotGiven = NOT_GIVEN,
+        include_old_revisions: Literal["true", "false"] | Omit = omit,
+        property_key: Literal["uuid"] | Omit = omit,
+        status: Literal["New", "QA", "Published"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityListSiblingsResponse:
         """Get the siblings list for an Entity.
 
@@ -891,14 +891,14 @@ class AsyncEntitiesResource(AsyncAPIResource):
         self,
         id: str,
         *,
-        property_key: Literal["uuid"] | NotGiven = NOT_GIVEN,
-        status: Literal["New", "QA", "Published"] | NotGiven = NOT_GIVEN,
+        property_key: Literal["uuid"] | Omit = omit,
+        status: Literal["New", "QA", "Published"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityListTupletsResponse:
         """Get the tuplets list for an Entity.
 
@@ -946,13 +946,13 @@ class AsyncEntitiesResource(AsyncAPIResource):
         self,
         id: str,
         *,
-        property: Literal["uuid"] | NotGiven = NOT_GIVEN,
+        property: Literal["uuid"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> EntityListUploadsResponse:
         """
         Get the list of all uploads the Entity belongs to.
@@ -995,7 +995,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> str:
         """
         Get the Globus URL to the given Dataset or Upload entity
@@ -1029,7 +1029,7 @@ class AsyncEntitiesResource(AsyncAPIResource):
         extra_headers: Headers | None = None,
         extra_query: Query | None = None,
         extra_body: Body | None = None,
-        timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
+        timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> object:
         """Get Provenance Data for Entity.
 

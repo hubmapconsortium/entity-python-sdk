@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.0-alpha.42 (2025-09-20)
+
+Full Changelog: [v2.0.0-alpha.41...v2.0.0-alpha.42](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.41...v2.0.0-alpha.42)
+
+### Chores
+
+* do not install brew dependencies in ./scripts/bootstrap by default ([faac586](https://github.com/hubmapconsortium/entity-python-sdk/commit/faac58609dd06e10328ede5965c3c5b89649fcab))
+* **types:** change optional parameter type from NotGiven to Omit ([133c6ab](https://github.com/hubmapconsortium/entity-python-sdk/commit/133c6ab64440471180839a403e149d5377406361))
+
 ## 2.0.0-alpha.41 (2025-09-17)
 
 Full Changelog: [v2.0.0-alpha.40...v2.0.0-alpha.41](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.40...v2.0.0-alpha.41)
