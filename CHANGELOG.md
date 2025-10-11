@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.43 (2025-10-11)
+
+Full Changelog: [v2.0.0-alpha.42...v2.0.0-alpha.43](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.42...v2.0.0-alpha.43)
+
+### Chores
+
+* **internal:** detect missing future annotations with ruff ([283b14f](https://github.com/hubmapconsortium/entity-python-sdk/commit/283b14f9809737b0de676ba36b85c0985dc504b4))
+
 ## 2.0.0-alpha.42 (2025-09-20)
 
 Full Changelog: [v2.0.0-alpha.41...v2.0.0-alpha.42](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.41...v2.0.0-alpha.42)
