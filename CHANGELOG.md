@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.44 (2025-10-18)
+
+Full Changelog: [v2.0.0-alpha.43...v2.0.0-alpha.44](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.43...v2.0.0-alpha.44)
+
+### Chores
+
+* bump `httpx-aiohttp` version to 0.1.9 ([5d1d08d](https://github.com/hubmapconsortium/entity-python-sdk/commit/5d1d08d419fe76dfa647fed54b8a181dc2625bfc))
+
 ## 2.0.0-alpha.43 (2025-10-11)
 
 Full Changelog: [v2.0.0-alpha.42...v2.0.0-alpha.43](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.42...v2.0.0-alpha.43)
