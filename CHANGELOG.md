@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.45 (2025-10-30)
+
+Full Changelog: [v2.0.0-alpha.44...v2.0.0-alpha.45](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.44...v2.0.0-alpha.45)
+
+### Bug Fixes
+
+* **client:** close streams without requiring full consumption ([686159f](https://github.com/hubmapconsortium/entity-python-sdk/commit/686159f96128ce212fd83eba6b4a685beb13d316))
+
 ## 2.0.0-alpha.44 (2025-10-18)
 
 Full Changelog: [v2.0.0-alpha.43...v2.0.0-alpha.44](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.43...v2.0.0-alpha.44)
