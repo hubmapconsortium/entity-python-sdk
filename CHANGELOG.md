@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-alpha.46 (2025-10-31)
+
+Full Changelog: [v2.0.0-alpha.45...v2.0.0-alpha.46](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.45...v2.0.0-alpha.46)
+
+### Chores
+
+* **internal/tests:** avoid race condition with implicit client cleanup ([b643a6b](https://github.com/hubmapconsortium/entity-python-sdk/commit/b643a6b83bf4c9a2fd275b53047ea232b6a6eeff))
+
 ## 2.0.0-alpha.45 (2025-10-30)
 
 Full Changelog: [v2.0.0-alpha.44...v2.0.0-alpha.45](https://github.com/hubmapconsortium/entity-python-sdk/compare/v2.0.0-alpha.44...v2.0.0-alpha.45)
