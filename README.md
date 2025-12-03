@@ -85,6 +85,7 @@ pip install --pre hubmap_entity_sdk[aiohttp]
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
 
 ```python
+import os
 import asyncio
 from hubmap_entity_sdk import DefaultAioHttpClient
 from hubmap_entity_sdk import AsyncHubmapEntitySDK
@@ -92,7 +93,9 @@ from hubmap_entity_sdk import AsyncHubmapEntitySDK
 
 async def main() -> None:
     async with AsyncHubmapEntitySDK(
-        bearer_token="My Bearer Token",
+        bearer_token=os.environ.get(
+            "HUBMAP_ENTITY_SDK_BEARER_TOKEN"
+        ),  # This is the default and can be omitted
         http_client=DefaultAioHttpClient(),
     ) as client:
         entity = await client.entities.retrieve(
