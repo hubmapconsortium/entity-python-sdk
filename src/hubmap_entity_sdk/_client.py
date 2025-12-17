@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Mapping
+from typing import TYPE_CHECKING, Any, Mapping
 from typing_extensions import Self, override
 
 import httpx
@@ -20,8 +20,8 @@ from ._types import (
     not_given,
 )
 from ._utils import is_given, get_async_library
+from ._compat import cached_property
 from ._version import __version__
-from .resources import doi, parents, uploads, children, datasets, ancestors, descendants, entity_types_all
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import APIStatusError
 from ._base_client import (
@@ -29,7 +29,18 @@ from ._base_client import (
     SyncAPIClient,
     AsyncAPIClient,
 )
-from .resources.entities import entities
+
+if TYPE_CHECKING:
+    from .resources import doi, parents, uploads, children, datasets, entities, ancestors, descendants, entity_types_all
+    from .resources.doi import DoiResource, AsyncDoiResource
+    from .resources.parents import ParentsResource, AsyncParentsResource
+    from .resources.uploads import UploadsResource, AsyncUploadsResource
+    from .resources.children import ChildrenResource, AsyncChildrenResource
+    from .resources.datasets import DatasetsResource, AsyncDatasetsResource
+    from .resources.ancestors import AncestorsResource, AsyncAncestorsResource
+    from .resources.descendants import DescendantsResource, AsyncDescendantsResource
+    from .resources.entity_types_all import EntityTypesAllResource, AsyncEntityTypesAllResource
+    from .resources.entities.entities import EntitiesResource, AsyncEntitiesResource
 
 __all__ = [
     "Timeout",
@@ -44,18 +55,6 @@ __all__ = [
 
 
 class HubmapEntitySDK(SyncAPIClient):
-    entities: entities.EntitiesResource
-    entity_types_all: entity_types_all.EntityTypesAllResource
-    ancestors: ancestors.AncestorsResource
-    descendants: descendants.DescendantsResource
-    parents: parents.ParentsResource
-    children: children.ChildrenResource
-    doi: doi.DoiResource
-    datasets: datasets.DatasetsResource
-    uploads: uploads.UploadsResource
-    with_raw_response: HubmapEntitySDKWithRawResponse
-    with_streaming_response: HubmapEntitySDKWithStreamedResponse
-
     # client options
     bearer_token: str | None
 
@@ -106,17 +105,67 @@ class HubmapEntitySDK(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.entities = entities.EntitiesResource(self)
-        self.entity_types_all = entity_types_all.EntityTypesAllResource(self)
-        self.ancestors = ancestors.AncestorsResource(self)
-        self.descendants = descendants.DescendantsResource(self)
-        self.parents = parents.ParentsResource(self)
-        self.children = children.ChildrenResource(self)
-        self.doi = doi.DoiResource(self)
-        self.datasets = datasets.DatasetsResource(self)
-        self.uploads = uploads.UploadsResource(self)
-        self.with_raw_response = HubmapEntitySDKWithRawResponse(self)
-        self.with_streaming_response = HubmapEntitySDKWithStreamedResponse(self)
+    @cached_property
+    def entities(self) -> EntitiesResource:
+        from .resources.entities import EntitiesResource
+
+        return EntitiesResource(self)
+
+    @cached_property
+    def entity_types_all(self) -> EntityTypesAllResource:
+        from .resources.entity_types_all import EntityTypesAllResource
+
+        return EntityTypesAllResource(self)
+
+    @cached_property
+    def ancestors(self) -> AncestorsResource:
+        from .resources.ancestors import AncestorsResource
+
+        return AncestorsResource(self)
+
+    @cached_property
+    def descendants(self) -> DescendantsResource:
+        from .resources.descendants import DescendantsResource
+
+        return DescendantsResource(self)
+
+    @cached_property
+    def parents(self) -> ParentsResource:
+        from .resources.parents import ParentsResource
+
+        return ParentsResource(self)
+
+    @cached_property
+    def children(self) -> ChildrenResource:
+        from .resources.children import ChildrenResource
+
+        return ChildrenResource(self)
+
+    @cached_property
+    def doi(self) -> DoiResource:
+        from .resources.doi import DoiResource
+
+        return DoiResource(self)
+
+    @cached_property
+    def datasets(self) -> DatasetsResource:
+        from .resources.datasets import DatasetsResource
+
+        return DatasetsResource(self)
+
+    @cached_property
+    def uploads(self) -> UploadsResource:
+        from .resources.uploads import UploadsResource
+
+        return UploadsResource(self)
+
+    @cached_property
+    def with_raw_response(self) -> HubmapEntitySDKWithRawResponse:
+        return HubmapEntitySDKWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> HubmapEntitySDKWithStreamedResponse:
+        return HubmapEntitySDKWithStreamedResponse(self)
 
     @property
     @override
@@ -226,18 +275,6 @@ class HubmapEntitySDK(SyncAPIClient):
 
 
 class AsyncHubmapEntitySDK(AsyncAPIClient):
-    entities: entities.AsyncEntitiesResource
-    entity_types_all: entity_types_all.AsyncEntityTypesAllResource
-    ancestors: ancestors.AsyncAncestorsResource
-    descendants: descendants.AsyncDescendantsResource
-    parents: parents.AsyncParentsResource
-    children: children.AsyncChildrenResource
-    doi: doi.AsyncDoiResource
-    datasets: datasets.AsyncDatasetsResource
-    uploads: uploads.AsyncUploadsResource
-    with_raw_response: AsyncHubmapEntitySDKWithRawResponse
-    with_streaming_response: AsyncHubmapEntitySDKWithStreamedResponse
-
     # client options
     bearer_token: str | None
 
@@ -288,17 +325,67 @@ class AsyncHubmapEntitySDK(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.entities = entities.AsyncEntitiesResource(self)
-        self.entity_types_all = entity_types_all.AsyncEntityTypesAllResource(self)
-        self.ancestors = ancestors.AsyncAncestorsResource(self)
-        self.descendants = descendants.AsyncDescendantsResource(self)
-        self.parents = parents.AsyncParentsResource(self)
-        self.children = children.AsyncChildrenResource(self)
-        self.doi = doi.AsyncDoiResource(self)
-        self.datasets = datasets.AsyncDatasetsResource(self)
-        self.uploads = uploads.AsyncUploadsResource(self)
-        self.with_raw_response = AsyncHubmapEntitySDKWithRawResponse(self)
-        self.with_streaming_response = AsyncHubmapEntitySDKWithStreamedResponse(self)
+    @cached_property
+    def entities(self) -> AsyncEntitiesResource:
+        from .resources.entities import AsyncEntitiesResource
+
+        return AsyncEntitiesResource(self)
+
+    @cached_property
+    def entity_types_all(self) -> AsyncEntityTypesAllResource:
+        from .resources.entity_types_all import AsyncEntityTypesAllResource
+
+        return AsyncEntityTypesAllResource(self)
+
+    @cached_property
+    def ancestors(self) -> AsyncAncestorsResource:
+        from .resources.ancestors import AsyncAncestorsResource
+
+        return AsyncAncestorsResource(self)
+
+    @cached_property
+    def descendants(self) -> AsyncDescendantsResource:
+        from .resources.descendants import AsyncDescendantsResource
+
+        return AsyncDescendantsResource(self)
+
+    @cached_property
+    def parents(self) -> AsyncParentsResource:
+        from .resources.parents import AsyncParentsResource
+
+        return AsyncParentsResource(self)
+
+    @cached_property
+    def children(self) -> AsyncChildrenResource:
+        from .resources.children import AsyncChildrenResource
+
+        return AsyncChildrenResource(self)
+
+    @cached_property
+    def doi(self) -> AsyncDoiResource:
+        from .resources.doi import AsyncDoiResource
+
+        return AsyncDoiResource(self)
+
+    @cached_property
+    def datasets(self) -> AsyncDatasetsResource:
+        from .resources.datasets import AsyncDatasetsResource
+
+        return AsyncDatasetsResource(self)
+
+    @cached_property
+    def uploads(self) -> AsyncUploadsResource:
+        from .resources.uploads import AsyncUploadsResource
+
+        return AsyncUploadsResource(self)
+
+    @cached_property
+    def with_raw_response(self) -> AsyncHubmapEntitySDKWithRawResponse:
+        return AsyncHubmapEntitySDKWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> AsyncHubmapEntitySDKWithStreamedResponse:
+        return AsyncHubmapEntitySDKWithStreamedResponse(self)
 
     @property
     @override
@@ -408,57 +495,247 @@ class AsyncHubmapEntitySDK(AsyncAPIClient):
 
 
 class HubmapEntitySDKWithRawResponse:
+    _client: HubmapEntitySDK
+
     def __init__(self, client: HubmapEntitySDK) -> None:
-        self.entities = entities.EntitiesResourceWithRawResponse(client.entities)
-        self.entity_types_all = entity_types_all.EntityTypesAllResourceWithRawResponse(client.entity_types_all)
-        self.ancestors = ancestors.AncestorsResourceWithRawResponse(client.ancestors)
-        self.descendants = descendants.DescendantsResourceWithRawResponse(client.descendants)
-        self.parents = parents.ParentsResourceWithRawResponse(client.parents)
-        self.children = children.ChildrenResourceWithRawResponse(client.children)
-        self.doi = doi.DoiResourceWithRawResponse(client.doi)
-        self.datasets = datasets.DatasetsResourceWithRawResponse(client.datasets)
-        self.uploads = uploads.UploadsResourceWithRawResponse(client.uploads)
+        self._client = client
+
+    @cached_property
+    def entities(self) -> entities.EntitiesResourceWithRawResponse:
+        from .resources.entities import EntitiesResourceWithRawResponse
+
+        return EntitiesResourceWithRawResponse(self._client.entities)
+
+    @cached_property
+    def entity_types_all(self) -> entity_types_all.EntityTypesAllResourceWithRawResponse:
+        from .resources.entity_types_all import EntityTypesAllResourceWithRawResponse
+
+        return EntityTypesAllResourceWithRawResponse(self._client.entity_types_all)
+
+    @cached_property
+    def ancestors(self) -> ancestors.AncestorsResourceWithRawResponse:
+        from .resources.ancestors import AncestorsResourceWithRawResponse
+
+        return AncestorsResourceWithRawResponse(self._client.ancestors)
+
+    @cached_property
+    def descendants(self) -> descendants.DescendantsResourceWithRawResponse:
+        from .resources.descendants import DescendantsResourceWithRawResponse
+
+        return DescendantsResourceWithRawResponse(self._client.descendants)
+
+    @cached_property
+    def parents(self) -> parents.ParentsResourceWithRawResponse:
+        from .resources.parents import ParentsResourceWithRawResponse
+
+        return ParentsResourceWithRawResponse(self._client.parents)
+
+    @cached_property
+    def children(self) -> children.ChildrenResourceWithRawResponse:
+        from .resources.children import ChildrenResourceWithRawResponse
+
+        return ChildrenResourceWithRawResponse(self._client.children)
+
+    @cached_property
+    def doi(self) -> doi.DoiResourceWithRawResponse:
+        from .resources.doi import DoiResourceWithRawResponse
+
+        return DoiResourceWithRawResponse(self._client.doi)
+
+    @cached_property
+    def datasets(self) -> datasets.DatasetsResourceWithRawResponse:
+        from .resources.datasets import DatasetsResourceWithRawResponse
+
+        return DatasetsResourceWithRawResponse(self._client.datasets)
+
+    @cached_property
+    def uploads(self) -> uploads.UploadsResourceWithRawResponse:
+        from .resources.uploads import UploadsResourceWithRawResponse
+
+        return UploadsResourceWithRawResponse(self._client.uploads)
 
 
 class AsyncHubmapEntitySDKWithRawResponse:
+    _client: AsyncHubmapEntitySDK
+
     def __init__(self, client: AsyncHubmapEntitySDK) -> None:
-        self.entities = entities.AsyncEntitiesResourceWithRawResponse(client.entities)
-        self.entity_types_all = entity_types_all.AsyncEntityTypesAllResourceWithRawResponse(client.entity_types_all)
-        self.ancestors = ancestors.AsyncAncestorsResourceWithRawResponse(client.ancestors)
-        self.descendants = descendants.AsyncDescendantsResourceWithRawResponse(client.descendants)
-        self.parents = parents.AsyncParentsResourceWithRawResponse(client.parents)
-        self.children = children.AsyncChildrenResourceWithRawResponse(client.children)
-        self.doi = doi.AsyncDoiResourceWithRawResponse(client.doi)
-        self.datasets = datasets.AsyncDatasetsResourceWithRawResponse(client.datasets)
-        self.uploads = uploads.AsyncUploadsResourceWithRawResponse(client.uploads)
+        self._client = client
+
+    @cached_property
+    def entities(self) -> entities.AsyncEntitiesResourceWithRawResponse:
+        from .resources.entities import AsyncEntitiesResourceWithRawResponse
+
+        return AsyncEntitiesResourceWithRawResponse(self._client.entities)
+
+    @cached_property
+    def entity_types_all(self) -> entity_types_all.AsyncEntityTypesAllResourceWithRawResponse:
+        from .resources.entity_types_all import AsyncEntityTypesAllResourceWithRawResponse
+
+        return AsyncEntityTypesAllResourceWithRawResponse(self._client.entity_types_all)
+
+    @cached_property
+    def ancestors(self) -> ancestors.AsyncAncestorsResourceWithRawResponse:
+        from .resources.ancestors import AsyncAncestorsResourceWithRawResponse
+
+        return AsyncAncestorsResourceWithRawResponse(self._client.ancestors)
+
+    @cached_property
+    def descendants(self) -> descendants.AsyncDescendantsResourceWithRawResponse:
+        from .resources.descendants import AsyncDescendantsResourceWithRawResponse
+
+        return AsyncDescendantsResourceWithRawResponse(self._client.descendants)
+
+    @cached_property
+    def parents(self) -> parents.AsyncParentsResourceWithRawResponse:
+        from .resources.parents import AsyncParentsResourceWithRawResponse
+
+        return AsyncParentsResourceWithRawResponse(self._client.parents)
+
+    @cached_property
+    def children(self) -> children.AsyncChildrenResourceWithRawResponse:
+        from .resources.children import AsyncChildrenResourceWithRawResponse
+
+        return AsyncChildrenResourceWithRawResponse(self._client.children)
+
+    @cached_property
+    def doi(self) -> doi.AsyncDoiResourceWithRawResponse:
+        from .resources.doi import AsyncDoiResourceWithRawResponse
+
+        return AsyncDoiResourceWithRawResponse(self._client.doi)
+
+    @cached_property
+    def datasets(self) -> datasets.AsyncDatasetsResourceWithRawResponse:
+        from .resources.datasets import AsyncDatasetsResourceWithRawResponse
+
+        return AsyncDatasetsResourceWithRawResponse(self._client.datasets)
+
+    @cached_property
+    def uploads(self) -> uploads.AsyncUploadsResourceWithRawResponse:
+        from .resources.uploads import AsyncUploadsResourceWithRawResponse
+
+        return AsyncUploadsResourceWithRawResponse(self._client.uploads)
 
 
 class HubmapEntitySDKWithStreamedResponse:
+    _client: HubmapEntitySDK
+
     def __init__(self, client: HubmapEntitySDK) -> None:
-        self.entities = entities.EntitiesResourceWithStreamingResponse(client.entities)
-        self.entity_types_all = entity_types_all.EntityTypesAllResourceWithStreamingResponse(client.entity_types_all)
-        self.ancestors = ancestors.AncestorsResourceWithStreamingResponse(client.ancestors)
-        self.descendants = descendants.DescendantsResourceWithStreamingResponse(client.descendants)
-        self.parents = parents.ParentsResourceWithStreamingResponse(client.parents)
-        self.children = children.ChildrenResourceWithStreamingResponse(client.children)
-        self.doi = doi.DoiResourceWithStreamingResponse(client.doi)
-        self.datasets = datasets.DatasetsResourceWithStreamingResponse(client.datasets)
-        self.uploads = uploads.UploadsResourceWithStreamingResponse(client.uploads)
+        self._client = client
+
+    @cached_property
+    def entities(self) -> entities.EntitiesResourceWithStreamingResponse:
+        from .resources.entities import EntitiesResourceWithStreamingResponse
+
+        return EntitiesResourceWithStreamingResponse(self._client.entities)
+
+    @cached_property
+    def entity_types_all(self) -> entity_types_all.EntityTypesAllResourceWithStreamingResponse:
+        from .resources.entity_types_all import EntityTypesAllResourceWithStreamingResponse
+
+        return EntityTypesAllResourceWithStreamingResponse(self._client.entity_types_all)
+
+    @cached_property
+    def ancestors(self) -> ancestors.AncestorsResourceWithStreamingResponse:
+        from .resources.ancestors import AncestorsResourceWithStreamingResponse
+
+        return AncestorsResourceWithStreamingResponse(self._client.ancestors)
+
+    @cached_property
+    def descendants(self) -> descendants.DescendantsResourceWithStreamingResponse:
+        from .resources.descendants import DescendantsResourceWithStreamingResponse
+
+        return DescendantsResourceWithStreamingResponse(self._client.descendants)
+
+    @cached_property
+    def parents(self) -> parents.ParentsResourceWithStreamingResponse:
+        from .resources.parents import ParentsResourceWithStreamingResponse
+
+        return ParentsResourceWithStreamingResponse(self._client.parents)
+
+    @cached_property
+    def children(self) -> children.ChildrenResourceWithStreamingResponse:
+        from .resources.children import ChildrenResourceWithStreamingResponse
+
+        return ChildrenResourceWithStreamingResponse(self._client.children)
+
+    @cached_property
+    def doi(self) -> doi.DoiResourceWithStreamingResponse:
+        from .resources.doi import DoiResourceWithStreamingResponse
+
+        return DoiResourceWithStreamingResponse(self._client.doi)
+
+    @cached_property
+    def datasets(self) -> datasets.DatasetsResourceWithStreamingResponse:
+        from .resources.datasets import DatasetsResourceWithStreamingResponse
+
+        return DatasetsResourceWithStreamingResponse(self._client.datasets)
+
+    @cached_property
+    def uploads(self) -> uploads.UploadsResourceWithStreamingResponse:
+        from .resources.uploads import UploadsResourceWithStreamingResponse
+
+        return UploadsResourceWithStreamingResponse(self._client.uploads)
 
 
 class AsyncHubmapEntitySDKWithStreamedResponse:
+    _client: AsyncHubmapEntitySDK
+
     def __init__(self, client: AsyncHubmapEntitySDK) -> None:
-        self.entities = entities.AsyncEntitiesResourceWithStreamingResponse(client.entities)
-        self.entity_types_all = entity_types_all.AsyncEntityTypesAllResourceWithStreamingResponse(
-            client.entity_types_all
-        )
-        self.ancestors = ancestors.AsyncAncestorsResourceWithStreamingResponse(client.ancestors)
-        self.descendants = descendants.AsyncDescendantsResourceWithStreamingResponse(client.descendants)
-        self.parents = parents.AsyncParentsResourceWithStreamingResponse(client.parents)
-        self.children = children.AsyncChildrenResourceWithStreamingResponse(client.children)
-        self.doi = doi.AsyncDoiResourceWithStreamingResponse(client.doi)
-        self.datasets = datasets.AsyncDatasetsResourceWithStreamingResponse(client.datasets)
-        self.uploads = uploads.AsyncUploadsResourceWithStreamingResponse(client.uploads)
+        self._client = client
+
+    @cached_property
+    def entities(self) -> entities.AsyncEntitiesResourceWithStreamingResponse:
+        from .resources.entities import AsyncEntitiesResourceWithStreamingResponse
+
+        return AsyncEntitiesResourceWithStreamingResponse(self._client.entities)
+
+    @cached_property
+    def entity_types_all(self) -> entity_types_all.AsyncEntityTypesAllResourceWithStreamingResponse:
+        from .resources.entity_types_all import AsyncEntityTypesAllResourceWithStreamingResponse
+
+        return AsyncEntityTypesAllResourceWithStreamingResponse(self._client.entity_types_all)
+
+    @cached_property
+    def ancestors(self) -> ancestors.AsyncAncestorsResourceWithStreamingResponse:
+        from .resources.ancestors import AsyncAncestorsResourceWithStreamingResponse
+
+        return AsyncAncestorsResourceWithStreamingResponse(self._client.ancestors)
+
+    @cached_property
+    def descendants(self) -> descendants.AsyncDescendantsResourceWithStreamingResponse:
+        from .resources.descendants import AsyncDescendantsResourceWithStreamingResponse
+
+        return AsyncDescendantsResourceWithStreamingResponse(self._client.descendants)
+
+    @cached_property
+    def parents(self) -> parents.AsyncParentsResourceWithStreamingResponse:
+        from .resources.parents import AsyncParentsResourceWithStreamingResponse
+
+        return AsyncParentsResourceWithStreamingResponse(self._client.parents)
+
+    @cached_property
+    def children(self) -> children.AsyncChildrenResourceWithStreamingResponse:
+        from .resources.children import AsyncChildrenResourceWithStreamingResponse
+
+        return AsyncChildrenResourceWithStreamingResponse(self._client.children)
+
+    @cached_property
+    def doi(self) -> doi.AsyncDoiResourceWithStreamingResponse:
+        from .resources.doi import AsyncDoiResourceWithStreamingResponse
+
+        return AsyncDoiResourceWithStreamingResponse(self._client.doi)
+
+    @cached_property
+    def datasets(self) -> datasets.AsyncDatasetsResourceWithStreamingResponse:
+        from .resources.datasets import AsyncDatasetsResourceWithStreamingResponse
+
+        return AsyncDatasetsResourceWithStreamingResponse(self._client.datasets)
+
+    @cached_property
+    def uploads(self) -> uploads.AsyncUploadsResourceWithStreamingResponse:
+        from .resources.uploads import AsyncUploadsResourceWithStreamingResponse
+
+        return AsyncUploadsResourceWithStreamingResponse(self._client.uploads)
 
 
 Client = HubmapEntitySDK
